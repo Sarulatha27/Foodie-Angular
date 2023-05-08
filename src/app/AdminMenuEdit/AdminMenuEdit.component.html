@@ -1,0 +1,91 @@
+<div class="menuform" *ngIf="status">
+  <div class="heading">
+    <h3>Menu Form</h3>
+  </div>
+  <form autocomplete="off" [formGroup]="editMenuForm">
+
+    <div>
+      <div [ngClass]="{'has-error': isSubmitted && fc.menuname.errors}">
+        <div>
+          <label for="">Menu Name</label>
+          <input type="text" class="form-control" id="menuname" formControlName="menuname">
+        </div>
+        <span *ngIf="isSubmitted && fc.menuname.errors">name is required</span>
+      </div>
+
+      <div [ngClass]="{'has-error': isSubmitted && fc.menucategory.errors}">
+        <div>
+          <label for="">Menu Category</label>
+          <select formControlName="menucategory">
+            <option *ngFor="let category of menucategory" [value]="category">{{category}}</option>
+          </select>
+        </div>
+        <span *ngIf="isSubmitted && fc.menucategory.errors">category is required</span>
+      </div>
+    </div>
+
+    <div>
+      <div [ngClass]="{'has-error': isSubmitted && fc.menuprice.errors}">
+        <div>
+          <label for="">Menu Price</label>
+          <input type="text" class="form-control" id="menuprice" formControlName="menuprice">
+        </div>
+        <span *ngIf="isSubmitted && fc.menuprice.errors">price is required</span>
+      </div>
+      <div [ngClass]="{'has-error': isSubmitted && fc.menuimage.errors}">
+        <div>
+          <label for="">Menu Image URL</label>
+          <input type="text" class="form-control" id="menuimage" formControlName="menuimage">
+        </div>
+        <span *ngIf="isSubmitted && fc.menuimage.errors">image url is required</span>
+      </div>
+    </div>
+  </form>
+  <div class="buttons">
+    <button class="add" (click)="save()">{{!editMenuForm.get('id').value? 'Add' :
+      'Update'}} Menu</button>
+    <button class="reset" (click)="reset()">Reset</button>
+  </div>
+</div>
+
+
+
+<div class="table">
+  <div class="table-header">
+    <div class="flex">
+      <h3>Menu List</h3>
+      <input type="search" placeholder="search menu" [(ngModel)]="search">
+      <button class="add" (click)="toggleCase()">Add Menu</button>
+    </div>
+  </div>
+  <div class="table-section">
+    <table>
+      <thead>
+        <th (click)="sort('id')">Menu Id <i class="fas fa-sort"></i></th>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Action</th>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let menu of MenuList | filter:search | orderBy: key: reverse | paginate: {itemsPerPage:6,currentPage:p};">
+          <td>{{menu.id}}</td>
+          <td><img src="{{menu.menuimage}}" alt="Menu Image"></td>
+          <td>{{menu.menuname}}</td>
+          <td>{{menu.menuprice}}</td>
+          <td>{{menu.menucategory}}</td>
+          <td>
+            <button (click)="editmenu(menu.id)" [disabled]="menu.isReading"><i
+                class="fas fa-pen-to-square"></i></button>
+            <button (click)="deletemenu(menu.id)" [disabled]="menu.isDeleting"><i class="fas fa-trash"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="page">
+    <pagination-controls (pageChange)="p=$event"></pagination-controls>
+  </div>
+</div>

@@ -1,0 +1,85 @@
+<section>
+    <div class="form-box">
+        <div class="form-value">
+            <form autocomplete="0ff" [formGroup]="RegisterForm" (submit)="SubmitForm()">
+                <h3>Welcome<span>!</span></h3>
+                <h2>Register Here</h2>
+
+                <div class="inputbox">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Name" formControlName="name"
+                        [ngClass]="{ 'is-invalid': submitted && RegisterForm.controls['name'].errors }">
+                </div>
+
+                <div *ngIf="submitted && RegisterForm.controls['name'].errors">
+                    <p class="error" *ngIf="RegisterForm.controls['name'].errors?.['required']">Name is
+                        required</p>
+                    <p class="error" *ngIf="RegisterForm.controls['name'].errors?.['pattern']">Name should
+                        have only
+                        alphabets</p>
+                    <p class="error" *ngIf="RegisterForm.controls['name'].errors?.['minlength']">Enter name
+                        with atleast
+                        6 characters</p>
+                </div>
+
+                <div class="inputbox">
+                    <i class="fas fa-envelope"></i>
+                    <input type="text" placeholder="Email Id" formControlName="email"
+                        [ngClass]="{ 'is-invalid': submitted && RegisterForm.controls['email'].errors }">
+                </div>
+
+                <div *ngIf="submitted && RegisterForm.controls['email'].errors">
+                    <p class="error" *ngIf="RegisterForm.controls['email'].errors?.['required']">Email Id is required
+                    </p>
+                    <p class="error" *ngIf="RegisterForm.controls['email'].errors?.['pattern']">Enter a valid email id
+                    </p>
+                </div>
+
+                <div class="inputbox">
+                    <i class="fas fa-phone"></i>
+                    <input type="text" placeholder="Mobile No" formControlName="mobile"
+                        [ngClass]="{ 'is-invalid': submitted && RegisterForm.controls['mobile'].errors }">
+                </div>
+
+                <div *ngIf="submitted && RegisterForm.controls['mobile'].errors">
+                    <p class="error" *ngIf="RegisterForm.controls['mobile'].errors?.['required']">Mobile Number is
+                        required</p>
+                    <p class="error" *ngIf="RegisterForm.controls['mobile'].errors?.['pattern']">Enter valid mobile
+                        number</p>
+                </div>
+
+                <div class="inputbox">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" formControlName="password"
+                        [ngClass]="{ 'is-invalid': submitted && RegisterForm.controls['password'].errors }">
+                </div>
+
+                <div *ngIf="submitted && RegisterForm.controls['password'].errors">
+                    <p class="error" *ngIf="RegisterForm.controls['password'].errors?.['required']">Password is required
+                    </p>
+                    <p class="error" *ngIf="RegisterForm.controls['password'].errors?.['minlength']">Enter password with
+                        atleast 6 digits</p>
+                </div>
+
+                <div class="inputbox">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Confirm Password" formControlName="cpassword"
+                        [ngClass]="{ 'is-invalid': submitted && RegisterForm.controls['cpassword'].errors }">
+                </div>
+
+                <div *ngIf="submitted && RegisterForm.controls['cpassword'].errors">
+                    <p class="error" *ngIf="RegisterForm.controls['cpassword'].errors?.['ConfirmedValidator']">Confirm
+                        password is not matched</p>
+                </div>
+
+                <button>Submit</button>
+                <div class="login">
+                    <p>Already have an account <a routerLink="../login">Login</a></p>
+                </div>
+                <div class="homepage">
+                    <p>Back to home <a routerLink="../home"><i class="fas fa-house"></i></a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

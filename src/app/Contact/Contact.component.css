@@ -1,0 +1,74 @@
+/* Contact Section */
+.contact-section {
+    padding: 0 4%;
+    margin-top: 80px;
+}
+
+.contact-section .row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.contact-section .row .map {
+    flex: 1 1 400px;
+}
+
+.contact-section .row form {
+    flex: 1 1 400px;
+    padding: 15px;
+    text-align: center;
+}
+
+.contact-section .row form h3 {
+    font-size: 25px;
+    color: var(--black);
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+.contact-section .row form .box {
+    margin: 6px 0;
+    font-size: 16px;
+    color: var(--black);
+    border: none;
+    border-bottom: 2px solid var(--orange);
+    padding: 10px;
+    padding-left: 0;
+    width: 90%;
+    outline: none;
+}
+
+.contact-section .row form textarea {
+    height: 110px;
+    resize: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+    text-transform: capitalize;
+}
+
+.contact-section .row form .box.ng-invalid {
+    border-bottom: 2px solid red;
+}
+
+.contact-section .row form .box.ng-valid {
+    border-bottom: 2px solid green;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--black);
+}
+
+form div {
+    text-align: left;
+    padding-left: 30px;
+    color: red;
+}
+
+div p {
+    font-size: 15px;
+}

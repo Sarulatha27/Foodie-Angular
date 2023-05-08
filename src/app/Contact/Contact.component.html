@@ -1,0 +1,57 @@
+<!-- contact section starts -->
+<section class="contact-section">
+  <div class="section-heading">
+    <h1>Contact Us</h1>
+  </div>
+
+  <div class="row">
+    <div class="map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114657.7273864978!2d78.05184096848052!3d11.671129859788351!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babf1ccf52cba0b%3A0xee9989007068ca47!2sSalem%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1674105433063!5m2!1sen!2sin"
+        width="600" height="400" style="border: 0" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <form [formGroup]="ContactForm" (submit)="SubmitForm()">
+      <h3>tell us something!</h3>
+      <input type="text" class="box" placeholder="Name" formControlName="name"
+        [ngClass]="{ 'is-invalid': submitted && ContactForm.controls['name'].errors }">
+
+      <div *ngIf="submitted && ContactForm.controls['name'].errors">
+        <p class="error" *ngIf="ContactForm.controls['name'].errors?.['required']">Name is required</p>
+        <p class="error" *ngIf="ContactForm.controls['name'].errors?.['pattern']">Name should have only alphabets</p>
+        <p class="error" *ngIf="ContactForm.controls['name'].errors?.['minlength']">Enter name with atleast 6
+          characters</p>
+      </div>
+
+      <input type="email" class="box" placeholder="Email Id" formControlName="email"
+        [ngClass]="{ 'is-invalid': submitted && ContactForm.controls['email'].errors }">
+
+      <div *ngIf="submitted && ContactForm.controls['email'].errors">
+        <p class="error" *ngIf="ContactForm.controls['email'].errors?.['required']">Email Id is required</p>
+        <p class="error" *ngIf="ContactForm.controls['email'].errors?.['pattern']">Enter a valid email id</p>
+      </div>
+
+      <input type="number" class="box" placeholder="Phone Number" formControlName="mobile"
+        [ngClass]="{ 'is-invalid': submitted && ContactForm.controls['mobile'].errors }">
+
+      <div *ngIf="submitted && ContactForm.controls['mobile'].errors">
+        <p class="error" *ngIf="ContactForm.controls['mobile'].errors?.['required']">Mobile Number is required</p>
+        <p class="error" *ngIf="ContactForm.controls['mobile'].errors?.['pattern']">Enter valid mobile number</p>
+      </div>
+
+      <textarea class="box" placeholder="Type Your Message Here.." formControlName="message"
+        [ngClass]="{ 'is-invalid': submitted && ContactForm.controls['message'].errors }"></textarea>
+
+      <div *ngIf="submitted && ContactForm.controls['message'].errors">
+        <p class="error" *ngIf="ContactForm.controls['message'].errors?.['required']">Message is required</p>
+        <p class="error" *ngIf="ContactForm.controls['message'].errors?.['minlength']">Enter your message with atleast
+          30
+          characters</p>
+      </div>
+
+      <button class="btn">Send Message</button>
+    </form>
+  </div>
+</section>
+<!-- contact section ends -->

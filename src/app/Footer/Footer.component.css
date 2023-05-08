@@ -1,0 +1,101 @@
+footer {
+    background-color: var(--black);
+}
+
+.footer-top {
+    padding: 0 4%;
+    padding-top: 20px;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-top .flex-col {
+    width: 17rem;
+}
+
+.footer-top .flex-col img {
+    margin-bottom: 20px;
+    width: 175px;
+}
+
+.footer-top .flex-col .heading {
+    font-size: 20px;
+    color: var(--white);
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+}
+
+.footer-top .flex-col .desc {
+    color: var(--yellow);
+    font-size: 14px;
+    text-align: justify;
+}
+
+.footer-top .flex-col .social-links {
+    margin-top: 10px;
+    display: flex;
+    padding: 0;
+}
+
+.footer-top .flex-col .social-links li a {
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    margin-right: 10px;
+    background-color: var(--orange);
+    transition: all 0.3s ease-in-out;
+}
+
+.footer-top .flex-col .social-links li a:hover {
+    color: var(--black);
+    background-color: var(--yellow);
+}
+
+.footer-top .flex-col .timings {
+    margin-left: -50px;
+}
+
+.footer-top .flex-col .timings li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    height: 30px;
+    font-size: 14px;
+}
+
+.footer-top .flex-col .timings li .days {
+    color: var(--white);
+}
+
+.footer-top .flex-col .timings li .time {
+    color: #858585;
+    font-size: 14px;
+}
+
+.footer-top .flex-col a {
+    color: var(--yellow);
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding: 5px 0;
+    text-decoration: none;
+}
+
+.footer-top .flex-col a:hover {
+    color: var(--white);
+}
+
+.copyrights {
+    background-color: var(--yellow);
+    height: 35px;
+    text-align: center;
+}
+
+.copyrights span {
+    font-size: 14px;
+}

@@ -1,0 +1,114 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+:root {
+    --orange: #e97130;
+    --yellow: #edc42e;
+    --white: #FFFFFF;
+    --black: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+/* scroll bar */
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: var(--yellow);
+    color: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--black);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+
+img {
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.flex-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+
+img {
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* section title */
+section {
+    margin-bottom: 30px;
+}
+
+.section-heading {
+    text-align: center;
+}
+
+.section-heading h1 {
+    font-size: 40px;
+    margin: 0;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-family: 'Dancing Script', cursive;
+    color: var(--orange);
+}
+
+/* button */
+.button {
+    margin-top: 30px;
+}
+
+.btn {
+    color: var(--black);
+    font-weight: 700;
+    text-decoration: none;
+    margin-top: 10px;
+    background-color: var(--yellow);
+    border: 1px solid var(--yellow);
+    border-radius: 6px;
+    padding: 10px 20px;
+}
+
+.btn:hover {
+    letter-spacing: 2px;
+    background-color: var(--yellow);
+    transition: all 0.5s ease-in-out;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

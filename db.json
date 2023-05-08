@@ -1,0 +1,249 @@
+{
+  "Admin": [
+    {
+      "profileimage": "assets/Images/Profile.png",
+      "name": "Sarulatha D",
+      "email": "sarulathadhavamani@gmail.com",
+      "mobile": "7708715475",
+      "password": "Saru@7708",
+      "role": "Admin",
+      "address": "18/7 Thiyagi Nadesan Street No 2, Ammapet",
+      "city": "Salem - India",
+      "pincode": "636003",
+      "id": 1
+    }
+  ],
+  "RegisteredUsers": [
+    {
+      "name": "Tamilselvi",
+      "email": "tamil@gmail.com",
+      "mobile": "9486595901",
+      "password": "123456",
+      "cpassword": "123456",
+      "id": 1
+    },
+    {
+      "name": "Surenthar",
+      "email": "surenthar@gmail.com",
+      "mobile": "6374510047",
+      "password": "654321",
+      "cpassword": "654321",
+      "id": 2
+    },
+    {
+      "name": "sarulatha",
+      "email": "sarulathadhavamani@gmail.com",
+      "mobile": "7708715475",
+      "password": "123456",
+      "cpassword": "123456",
+      "id": 7
+    }
+  ],
+  "ContactQueries": [
+    {
+      "name": "dhavamani",
+      "email": "dhavamani@gmail.com",
+      "mobile": 8925368626,
+      "message": "Hi i can't able to add menu into the cart.please check with your team",
+      "id": 1
+    },
+    {
+      "name": "AjayAnand",
+      "email": "ajayanand@gmail.com",
+      "mobile": 9080527209,
+      "message": "HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII",
+      "id": 2
+    },
+    {
+      "name": "sarulatha",
+      "email": "sarulathadhavamani@gmail.com",
+      "mobile": 7708715475,
+      "message": "hi admin how are you? in homepage what is the purpose of counter",
+      "id": 3
+    }
+  ],
+  "MenuItems": [
+    {
+      "id": 1,
+      "menuname": "Vegetables Soup",
+      "menuprice": "75",
+      "menucategory": "Soup",
+      "menuimage": "assets/Images/menu-soup1.jpg"
+    },
+    {
+      "id": 2,
+      "menuname": "Mushroom & Garlic Pepper Soup",
+      "menuprice": "95",
+      "menucategory": "Soup",
+      "menuimage": "assets/Images/menu-soup2.jpg"
+    },
+    {
+      "id": 3,
+      "menuname": "Chicken Chettinad Soup",
+      "menuprice": "110",
+      "menucategory": "Soup",
+      "menuimage": "assets/Images/menu-soup3.jpg"
+    },
+    {
+      "id": 4,
+      "menuname": "Mutton Pepper Soup",
+      "menuprice": "140",
+      "menucategory": "Soup",
+      "menuimage": "assets/Images/menu-soup4.jpg"
+    },
+    {
+      "id": 5,
+      "menuname": "Paneer Fried Momos [6 pcs]",
+      "menuprice": "135",
+      "menucategory": "Momo",
+      "menuimage": "assets/Images/menu-momo1.jpg"
+    },
+    {
+      "id": 6,
+      "menuname": "Fried Chicken Momo [6 pcs]",
+      "menuprice": "170",
+      "menucategory": "Momo",
+      "menuimage": "assets/Images/menu-momo2.jpg"
+    },
+    {
+      "id": 7,
+      "menuname": "Steamed Mixed Veg Momos [8 Pcs]",
+      "menuprice": "189",
+      "menucategory": "Momo",
+      "menuimage": "assets/Images/menu-momo3.jpg"
+    },
+    {
+      "id": 8,
+      "menuname": "French Fries - [plain]",
+      "menuprice": "90",
+      "menucategory": "French Fries",
+      "menuimage": "assets/Images/menu-fries1.jpg"
+    },
+    {
+      "id": 9,
+      "menuname": "Masala French Fries",
+      "menuprice": "119",
+      "menucategory": "French Fries",
+      "menuimage": "assets/Images/menu-fries2.jpg"
+    },
+    {
+      "id": 10,
+      "menuname": "Tandoori Onion Pizza [6 slices]",
+      "menuprice": "220",
+      "menucategory": "Pizza",
+      "menuimage": "assets/Images/menu-pizza1.jpg"
+    },
+    {
+      "id": 11,
+      "menuname": "Double Cheese Pizza [6 slices]",
+      "menuprice": "240",
+      "menucategory": "Pizza",
+      "menuimage": "assets/Images/menu-pizza2.jpg"
+    },
+    {
+      "id": 12,
+      "menuname": "Chicken N Corn Delight Pizza [6 slices]",
+      "menuprice": "300",
+      "menucategory": "Pizza",
+      "menuimage": "assets/Images/menu-pizza3.jpg"
+    },
+    {
+      "id": 13,
+      "menuname": "Triple Chicken Feast Pizza [6 slices]",
+      "menuprice": "310",
+      "menucategory": "Pizza",
+      "menuimage": "assets/Images/menu-pizza4.jpg"
+    },
+    {
+      "id": 14,
+      "menuname": "Grilled Veg Burger",
+      "menuprice": "150",
+      "menucategory": "Burger",
+      "menuimage": "assets/Images/menu-burger1.jpg"
+    },
+    {
+      "id": 15,
+      "menuname": "Paneer Tikka Burger",
+      "menuprice": "170",
+      "menucategory": "Burger",
+      "menuimage": "assets/Images/menu-burger2.jpg"
+    },
+    {
+      "id": 16,
+      "menuname": "Mushroom Cheese Burger",
+      "menuprice": "215",
+      "menucategory": "Burger",
+      "menuimage": "assets/Images/menu-burger3.jpg"
+    },
+    {
+      "id": 17,
+      "menuname": "Fried Chicken Burger",
+      "menuprice": "250",
+      "menucategory": "Burger",
+      "menuimage": "assets/Images/menu-burger4.jpg"
+    },
+    {
+      "id": 18,
+      "menuname": "Bread Omelette Cheese Grilled Sandwich [2 Slices]",
+      "menuprice": "100",
+      "menucategory": "Sandwich",
+      "menuimage": "assets/Images/menu-sand1.jpg"
+    },
+    {
+      "id": 19,
+      "menuname": "Corn Mayonnaise Grilled Sandwich [2 Slices]",
+      "menuprice": "110",
+      "menucategory": "Sandwich",
+      "menuimage": "assets/Images/menu-sand2.jpg"
+    },
+    {
+      "id": 20,
+      "menuname": "Paneer Mayonnaise Grilled Sandwich [2 Slices]",
+      "menuprice": "125",
+      "menucategory": "Sandwich",
+      "menuimage": "assets/Images/menu-sand3.jpg"
+    },
+    {
+      "id": 21,
+      "menuname": "Chicken Grilled Sandwich [2 Slices]",
+      "menuprice": "139",
+      "menucategory": "Sandwich",
+      "menuimage": "assets/Images/menu-sand4.jpg"
+    },
+    {
+      "id": 22,
+      "menuname": "Hot Gulab Jamun With Ice Cream",
+      "menuprice": "110",
+      "menucategory": "Ice Cream",
+      "menuimage": "assets/Images/menu-ice1.jpg"
+    },
+    {
+      "id": 23,
+      "menuname": "Chocolate Ice Cream",
+      "menuprice": "112",
+      "menucategory": "Ice Cream",
+      "menuimage": "assets/Images/menu-ice2.jpg"
+    },
+    {
+      "id": 24,
+      "menuname": "Californian Pistachio Ice Cream",
+      "menuprice": "120",
+      "menucategory": "Ice Cream",
+      "menuimage": "assets/Images/menu-ice3.jpg"
+    },
+    {
+      "id": 25,
+      "menuname": "Electric Blueberry Ice Cream",
+      "menuprice": "130",
+      "menucategory": "Ice Cream",
+      "menuimage": "assets/Images/menu-ice4.jpg"
+    },
+    {
+      "id": 26,
+      "menuname": "Brownie With Ice Cream",
+      "menuprice": "141",
+      "menucategory": "Ice Cream",
+      "menuimage": "assets/Images/menu-ice5.jpg"
+    }
+  ]
+}

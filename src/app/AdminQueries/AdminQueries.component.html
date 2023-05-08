@@ -1,0 +1,32 @@
+<div class="title">
+    <h3>Queries</h3>
+</div>
+<div class="container">
+    <div class="flex-container">
+        <div *ngFor="let que of queries" class="flex-box">
+            <div class="content">
+                <small>Id:</small>
+                <span>{{que.id}}</span>
+            </div>
+            <div class="content">
+                <small>Name:</small>
+                <span>{{que.name}}</span>
+            </div>
+            <div class="content">
+                <small>Email Id:</small>
+                <span>{{que.email}}</span>
+            </div>
+            <div class="content">
+                <small>Mobile No:</small>
+                <span>{{que.mobile}}</span>
+            </div>
+            <div class="content">
+                <small>Query Message:</small>
+                <span>{{que.message}}</span>
+            </div>
+            <div class="cls-button">
+                <button>Reply <i class="fa-solid fa-reply"></i></button>
+            </div>
+        </div>
+    </div>
+</div>

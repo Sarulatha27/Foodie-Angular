@@ -1,0 +1,44 @@
+<body>
+    <h3>My Profile</h3>
+    <div class="profile-content" *ngFor="let prof of adminProfile">
+        <img src="{{prof.profileimage}}" alt="">
+        <div class="info-container">
+            <div>
+                <div>
+                    <h2>Name</h2>
+                    <p>{{prof.name}}</p>
+                </div>
+                <div>
+                    <h2>Email Id</h2>
+                    <p>{{prof.email}}</p>
+                </div>
+                <div>
+                    <h2>Password</h2>
+                    <p>{{prof.password}}</p>
+                </div>
+                <div>
+                    <h2>City</h2>
+                    <p>{{prof.city}}</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h2>Role</h2>
+                    <p>{{prof.role}}</p>
+                </div>
+                <div>
+                    <h2>Mobile No</h2>
+                    <p>{{prof.mobile}}</p>
+                </div>
+                <div>
+                    <h2>Address</h2>
+                    <p>{{prof.address}}</p>
+                </div>
+                <div>
+                    <h2>Pincode</h2>
+                    <p>{{prof.pincode}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
