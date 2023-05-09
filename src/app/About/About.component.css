@@ -33,8 +33,9 @@
 
 .about-section .row .content h3 {
     font-size: 30px;
-    margin: 10px 0;
+    margin: 5px 0;
     color: var(--black);
+    font-weight: 500;
 }
 
 .about-section .row .content p {

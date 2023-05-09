@@ -1,12 +1,14 @@
+*{
+    border: 0;
+    outline: 0;
+    border-radius: 0;
+}
+
 h3 {
     font-size: 40px;
     font-weight: 700;
     font-family: 'Dancing Script', cursive;
     color: var(--orange);
-}
-
-::-webkit-scrollbar {
-    display: none;
 }
 
 button {
@@ -22,7 +24,7 @@ button {
 /* Menu Form */
 .menuform {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
-    margin: 40px 150px;
+    margin: 40px 100px;
     padding: 10px;
 }
 
@@ -40,7 +42,6 @@ form {
     justify-content: center;
     align-items: center;
     gap: 20px;
-
 }
 
 form div div {
@@ -54,8 +55,11 @@ form div div div {
 }
 
 label {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
+    width: 80%;
+    position: relative;
+    top: 15px;
 }
 
 input {

@@ -75,7 +75,7 @@ section {
 .section-heading h1 {
     font-size: 40px;
     margin: 0;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-weight: 700;
     font-family: 'Dancing Script', cursive;
     color: var(--orange);
@@ -101,14 +101,4 @@ section {
     letter-spacing: 2px;
     background-color: var(--yellow);
     transition: all 0.5s ease-in-out;
-}
-
-html,
-body {
-    height: 100%;
-}
-
-body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
