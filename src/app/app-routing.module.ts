@@ -52,6 +52,10 @@ const routes: Routes = [
     component: CartComponent
   },
   {
+    path: 'profile',
+    component: CustomerProfileComponent
+  },
+  {
     path: 'checkout',
     component: CheckoutComponent
   },
@@ -88,9 +92,6 @@ const routes: Routes = [
     }]
   },
   {
-    path: 'logout',
-    component: HomeComponent
-  }, {
     path: '',
     component: HomeComponent
   },

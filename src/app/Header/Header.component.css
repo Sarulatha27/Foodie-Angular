@@ -16,18 +16,18 @@ nav {
     cursor: pointer;
 }
 
-nav ul {
+nav div {
     flex: 1;
     text-align: right;
 }
 
-nav ul li {
+nav div ul li {
     display: inline-block;
     list-style: none;
     margin: 10px 20px;
 }
 
-nav ul li a {
+nav div ul li a {
     color: var(--yellow);
     position: relative;
     top: 10px;
@@ -35,7 +35,7 @@ nav ul li a {
     text-decoration: none;
 }
 
-nav ul li .login {
+nav div ul li .login {
     color: var(--black);
     font-weight: 700;
     text-decoration: none;
@@ -45,13 +45,13 @@ nav ul li .login {
     border-radius: 6px;
 }
 
-nav ul li .login:hover {
+nav div ul li .login:hover {
     background-color: var(--white);
     border: 1px solid var(--black);
     transition: all 0.5s ease-in-out;
 }
 
-nav ul li .hover::after {
+nav div ul li .hover::after {
     content: '';
     width: 0;
     height: 3px;
@@ -63,8 +63,12 @@ nav ul li .hover::after {
     transition: width 0.3s;
 }
 
-nav ul li a:hover::after {
+nav  div ul li a:hover::after {
     width: 50%;
+}
+
+a:hover{
+    cursor: pointer;
 }
 
 .active {

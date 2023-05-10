@@ -117,3 +117,7 @@ a:hover .title-2 {
 .navbar ul li:nth-child(6)>a:hover .icon {
     color: #D22730;
 }
+
+.logout:hover{
+    cursor: pointer;
+}

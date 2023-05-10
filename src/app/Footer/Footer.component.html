@@ -32,7 +32,6 @@
         National Highways <br />
         Salem, Ammapet
       </p>
-      <br />
       <p class="desc">
         p: 6789567895 <br />
         E: foodie@gmail.com
@@ -56,11 +55,21 @@
 
     <div class="flex-col">
       <h4 class="heading">More Info</h4>
-      <a routerLink="home">Home</a>
-      <a routerLink="about">About</a>
-      <a routerLink="menu">Menu</a>
-      <a routerLink="contact">Contact</a>
-      <a routerLink="login">Login</a>
+      <div [ngSwitch]="menuType" class="control">
+        <ul *ngSwitchCase="'default'">
+          <li><a routerLink="about">About</a></li>
+          <li><a routerLink="menu">Menu</a></li>
+          <li><a routerLink="contact">Contact</a></li>
+          <li><a routerLink="login">Login</a></li>
+        </ul>
+        <ul *ngSwitchCase="'user'">
+          <a routerLink="home">Home</a>
+          <a routerLink="about">About</a>
+          <a routerLink="menu">Menu</a>
+          <a routerLink="contact">Contact</a>
+          <a (click)="userLogout()">Logout</a>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="copyrights flex-row">

@@ -1,12 +1,20 @@
 <header>
   <nav>
     <a routerLink="home" class="hover"><img src="assets/Images/Foodie.png" alt="Foodie" class="logo" /></a>
-    <ul>
-      <li><a routerLink="about" routerLinkActive="active" class="hover">About</a></li>
-      <li><a routerLink="menu" routerLinkActive="active" class="hover">Menu</a></li>
-      <li><a routerLink="cart" routerLinkActive="active" class="hover">Cart</a></li>
-      <li><a routerLink="contact" routerLinkActive="active" class="hover">Contact</a></li>
-      <li><a routerLink="login" class="login">Login <i class="fas fa-right-from-bracket"></i></a></li>
-    </ul>
+    <div [ngSwitch]="menuType">
+      <ul *ngSwitchCase="'default'">
+        <li><a routerLink="about" routerLinkActive="active" class="hover">About</a></li>
+        <li><a routerLink="menu" routerLinkActive="active" class="hover">Menu</a></li>
+        <li><a routerLink="contact" routerLinkActive="active" class="hover">Contact</a></li>
+        <li><a routerLink="login" class="login">Login <i class="fas fa-right-from-bracket"></i></a></li>
+      </ul>
+      <ul *ngSwitchCase="'user'">
+        <li><a routerLink="menu" routerLinkActive="active" class="hover">Menu</a></li>
+        <li><a routerLink="cart" routerLinkActive="active" class="hover">Cart</a></li>
+        <li><a routerLink="orders" routerLinkActive="active" class="hover">My Orders</a></li>
+        <li><a routerLink="profile" routerLinkActive="active" class="hover">Profile</a></li>
+        <li><a (click)="userLogout()" class="login">Logout</a></li>
+      </ul>
+    </div>
   </nav>
 </header>
