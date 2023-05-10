@@ -10,7 +10,7 @@
         <img src="{{ menu.menuimage }}" alt="" />
         <div class="content">
           <div class="name">
-           <a routerLink="/menu/{{menu.id}}"> {{ menu.menuname }}</a>
+           <a routerLink="/menu/{{menu.menuname}}"> {{ menu.menuname }}</a>
           </div>
           <div class="price">
             <span>{{ menu.menuprice | currency : "INR" }}</span>
@@ -20,4 +20,3 @@
       </li>
   </ul>
 </section>
-<router-outlet></router-outlet>

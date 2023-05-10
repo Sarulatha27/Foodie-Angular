@@ -30,12 +30,10 @@ const routes: Routes = [
   {
     path: 'menu',
     component: MenuComponent,
-    children: [
-      {
-        path: ':check',
-        component: MenuDetailedComponent
-      }
-    ]
+  },
+  {
+    path: 'menu/:check',
+    component: MenuDetailedComponent
   },
   {
     path: 'contact',
