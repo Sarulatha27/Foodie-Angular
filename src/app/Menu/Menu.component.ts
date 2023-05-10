@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItemService } from '../MenuItem.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-Menu',
@@ -8,6 +9,7 @@ import { MenuItemService } from '../MenuItem.service';
 })
 export class MenuComponent implements OnInit {
   menuList: any;
+  search: any;
   category: any = [
     {
       menucategory: 'All'

@@ -13,10 +13,7 @@ export class RegisterComponent implements OnInit {
   submitted: boolean = false;
 
   constructor(private RegForm: RegisterFormService, private formbuilder: FormBuilder, private router: Router) { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit(): void {}
   RegisterForm = this.formbuilder.group({
     name: ["", [Validators.required, Validators.pattern("^[A-Za-z]+$"), Validators.minLength(6)]],
     email: ["", [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],

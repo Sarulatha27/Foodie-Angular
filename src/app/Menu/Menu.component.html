@@ -1,0 +1,23 @@
+<section class="menu-section">
+  <div class="section-heading">
+    <h1>Our Menu</h1>
+  </div>
+  <div class="search">
+    <input type="search" placeholder="  search menu by name..." [(ngModel)]="search" />
+  </div>
+  <ul>
+      <li *ngFor="let menu of menuList | filter : search">
+        <img src="{{ menu.menuimage }}" alt="" />
+        <div class="content">
+          <div class="name">
+           <a routerLink="/menu/{{menu.id}}"> {{ menu.menuname }}</a>
+          </div>
+          <div class="price">
+            <span>{{ menu.menuprice | currency : "INR" }}</span>
+            <button class="fas fa-shopping-cart"></button>
+          </div>
+        </div>
+      </li>
+  </ul>
+</section>
+<router-outlet></router-outlet>

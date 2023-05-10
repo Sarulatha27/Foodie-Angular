@@ -16,6 +16,7 @@ import { LoginComponent } from './Login/Login.component';
 import { MenuComponent } from './Menu/Menu.component';
 import { OrdersComponent } from './Orders/Orders.component';
 import { RegisterComponent } from './Register/Register.component';
+import { MenuDetailedComponent } from './MenuDetailed/MenuDetailed.component';
 
 const routes: Routes = [
   {
@@ -28,7 +29,13 @@ const routes: Routes = [
   },
   {
     path: 'menu',
-    component: MenuComponent
+    component: MenuComponent,
+    children: [
+      {
+        path: ':check',
+        component: MenuDetailedComponent
+      }
+    ]
   },
   {
     path: 'contact',
