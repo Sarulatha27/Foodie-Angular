@@ -27,7 +27,7 @@ ul{
 }
 
 li {
-  height: 290px;
+  height: 280px;
   width: 300px;
   border: 1px solid whitesmoke;
   border-radius: 16px;
@@ -47,41 +47,19 @@ li img {
 }
 
 .content {
-  padding: 8px 4px;
-}
-
-.content .name {
-  font-size: 16px;
-  text-align: justify;
-}
-a{
-  color: var(--orange);
-}
-.name a:hover{
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-.price {
+  padding: 20px 3px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-top: 5px;
-  font-size: 15px;
 }
 
-button{
-    padding: 10px;
-    font-size: 16px;
-    background-color: var(--black);
-    color: var(--white);
-    border: none;
-    outline: none;
-    border-radius: 4px;
-    cursor: pointer;
+a{
+  font-size: 16px;
+  width: 210px;
+  color: var(--orange);
+  text-align: justify;
 }
 
-button:hover{
-    color: var(--black);
-    background-color: var(--yellow);
+a:hover{
+  cursor: pointer;
+  text-decoration: underline;
 }

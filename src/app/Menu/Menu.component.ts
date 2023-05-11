@@ -28,6 +28,7 @@ export class MenuComponent implements OnInit {
     }, {
       menucategory: 'Ice Cream'
     }];
+
   constructor(private menu: MenuItemService) { }
 
   ngOnInit() {
@@ -37,4 +38,21 @@ export class MenuComponent implements OnInit {
       }
     })
   }
+
 }
+
+/*
+
+menuQuantity: number = 1;
+handleQuantity(val: string) {
+    if (this.menuQuantity < 20 && val=='plus'){
+      this.menuQuantity += 1;
+    }
+    else if (this.menuQuantity > 1 && val=='min'){
+      this.menuQuantity -= 1;
+    }
+  }
+
+  addToCart() {
+
+  } */

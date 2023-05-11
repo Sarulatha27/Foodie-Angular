@@ -1,0 +1,20 @@
+<section class="detail-section">
+  <div *ngIf="menuData" class="menu-details">
+    <div>
+      <img src="{{menuData.menuimage}}" alt="">
+    </div>
+    <div class="column">
+      <div class="detials">
+        <h1>{{menuData.menuname}}</h1>
+        <h3><span>Price : </span>{{menuData.menuprice | currency:'INR'}}</h3>
+        <h3><span>Category : </span>{{menuData.menucategory}}</h3>
+        <div class="quantity">
+          <button (click)="handleQuantity('min')">-</button>
+          <input type="text" value="{{menuQuantity}}">
+          <button (click)="handleQuantity('plus')">+</button>
+        </div>
+        <button (click)="addToCart()">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</section>
