@@ -17,16 +17,4 @@ export class RegisterFormService {
     return this.store.get(this.url);
   }
 
-  retriveOneUser(id: any) {
-    return this.store.get(this.url + "/" + id);
-  }
-
-  deleteUser(id: any) {
-    return this.store.delete(this.url, id);
-  }
-
-  updateUser(id: any, data: any) {
-    return this.store.patch(this.url + '/' + id, data);
-  }
-
 }

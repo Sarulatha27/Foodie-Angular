@@ -13,8 +13,6 @@ export class FooterComponent implements OnInit {
   constructor(public router: Router) { }
 
   ngOnInit() {
-    this.router.events.subscribe((val:any)=>{
-      if(val.url){
         if(localStorage.getItem('user')){
           let userStore = localStorage.getItem('user');
           let userData = userStore && JSON.parse(userStore);
@@ -24,11 +22,10 @@ export class FooterComponent implements OnInit {
         else{
           this.menuType = 'default';
         }
-      }
-    })
   }
   userLogout(){
       localStorage.removeItem('user');
       this.router.navigate(['/home']);
+      window.location.reload();
   }
 }

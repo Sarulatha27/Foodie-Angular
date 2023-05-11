@@ -8,27 +8,25 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  userName:string="";
+  userEmail:any;
   menuType:string='default';
-  constructor(public router: Router) { }
+  constructor(public router: Router) { 
+  }
 
   ngOnInit() {
-    this.router.events.subscribe((val:any)=>{
-      if(val.url){
         if(localStorage.getItem('user')){
           let userStore = localStorage.getItem('user');
           let userData = userStore && JSON.parse(userStore);
-          this.userName = userData.email;
+          this.userEmail = userData.email;
           this.menuType = 'user';
         }
         else{
           this.menuType = 'default';
         }
-      }
-    })
   }
   userLogout(){
     localStorage.removeItem('user');
     this.router.navigate(['/home']);
+    window.location.reload();
   }
 }
