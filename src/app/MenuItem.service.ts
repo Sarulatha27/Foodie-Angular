@@ -7,7 +7,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 export class MenuItemService {
   url: any = 'http://localhost:3000/MenuItems';
 
-  cartData = new EventEmitter<[]>();// to display dynamically number of cartItems in cart Component
+  cartData = new EventEmitter<any>();// to display dynamically number of cartItems in cart Component
 
   constructor(private http: HttpClient) {}
 
@@ -39,5 +39,15 @@ export class MenuItemService {
       localStorage.setItem('localCart',JSON.stringify(cartData));
       this.cartData.emit(cartData);
     } 
+  }
+  // used to remove menu in cart in local storage
+  removeItemFromCart(menuId:number){
+    let cartData = localStorage.getItem('localCart');
+    if(cartData){
+      let items = JSON.parse(cartData);
+      items=items.filter((item:any)=> menuId !== item.id);
+      localStorage.setItem('localCart',JSON.stringify(items));
+      this.cartData.emit(items);
+    }
   }
 }
