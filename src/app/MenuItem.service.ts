@@ -1,11 +1,13 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MenuItemService {
   url: any = 'http://localhost:3000/MenuItems';
+
+  cartData = new EventEmitter<[]>();// to display dynamically number of cartItems in cart Component
 
   constructor(private http: HttpClient) {}
 
@@ -35,6 +37,7 @@ export class MenuItemService {
       cartData = JSON.parse(localCart);
       cartData.push(data);
       localStorage.setItem('localCart',JSON.stringify(cartData));
-    }
+      this.cartData.emit(cartData);
+    } 
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuItemService } from '../MenuItem.service';
 
 @Component({
   selector: 'app-Header',
@@ -10,7 +11,17 @@ export class HeaderComponent implements OnInit {
 
   userEmail:any;
   menuType:string='default';
-  constructor(public router: Router) { 
+  cartItems= 0;
+  constructor(public router: Router,private menu:MenuItemService) { 
+    // for cart
+    let cartData = localStorage.getItem('localCart');
+    if(cartData){
+    this.cartItems = JSON.parse(cartData).length;
+    }
+    
+    this.menu.cartData.subscribe((items)=>{
+    this.cartItems = items.length;
+    });  
   }
 
   ngOnInit() {
@@ -24,6 +35,7 @@ export class HeaderComponent implements OnInit {
           this.menuType = 'default';
         }
   }
+
   userLogout(){
     localStorage.removeItem('user');
     this.router.navigate(['/home']);
