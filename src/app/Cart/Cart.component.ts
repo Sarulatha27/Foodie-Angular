@@ -10,8 +10,4 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
   }
-  menuType:any;
-  userLogout(){
-    
-  }
 }
