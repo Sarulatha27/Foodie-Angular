@@ -246,26 +246,5 @@
       "menuimage": "assets/Images/menu-ice5.jpg"
     }
   ],
-  "Cart": [
-    {
-      "menuname": "Paneer Fried Momos [6 pcs]",
-      "menuprice": "135",
-      "menucategory": "Momo",
-      "menuimage": "assets/Images/menu-momo1.jpg",
-      "menuquantity": 1,
-      "userEmail": "sarulathadhavamani@gmail.com",
-      "menuId": 5,
-      "id": 1
-    },
-    {
-      "menuname": "Paneer Fried Momos [6 pcs]",
-      "menuprice": "135",
-      "menucategory": "Momo",
-      "menuimage": "assets/Images/menu-momo1.jpg",
-      "menuquantity": 1,
-      "userEmail": "sarulathadhavamani@gmail.com",
-      "menuId": 5,
-      "id": 2
-    }
-  ]
+  "Cart": []
 }
