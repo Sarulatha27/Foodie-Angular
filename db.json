@@ -258,24 +258,14 @@
       "id": 1
     },
     {
-      "menuId": 2,
-      "menuname": "Mushroom & Garlic Pepper Soup",
-      "menuprice": "95",
-      "menucategory": "Soup",
-      "menuimage": "assets/Images/menu-soup2.jpg",
+      "menuId": 25,
+      "menuname": "Electric Blueberry Ice Cream",
+      "menuprice": "130",
+      "menucategory": "Ice Cream",
+      "menuimage": "assets/Images/menu-ice4.jpg",
       "menuquantity": 1,
-      "userEmail": "tamil@gmail.com",
-      "id": 2
-    },
-    {
-      "menuId": 2,
-      "menuname": "Mushroom & Garlic Pepper Soup",
-      "menuprice": "95",
-      "menucategory": "Soup",
-      "menuimage": "assets/Images/menu-soup2.jpg",
-      "menuquantity": 1,
-      "userEmail": "tamil@gmail.com",
-      "id": 3
+      "userEmail": "sarulathadhavamani@gmail.com",
+      "id": 4
     }
   ]
 }

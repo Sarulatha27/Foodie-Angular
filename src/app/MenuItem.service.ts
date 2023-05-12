@@ -34,6 +34,7 @@ export class MenuItemService {
     // to add menu in local storage when it is not have anything
     if(!localCart){
       localStorage.setItem('localCart',JSON.stringify([data]));
+      this.cartDataItem.emit(data);
     }
 
     // to add menu in local storage along with the previsouly added menu when localcart is empty
