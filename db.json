@@ -248,33 +248,33 @@
   ],
   "Cart": [
     {
-      "menuId": 4,
-      "menuname": "Mutton Pepper Soup",
-      "menuprice": "140",
+      "menuId": 3,
+      "menuname": "Chicken Chettinad Soup",
+      "menuprice": "110",
       "menucategory": "Soup",
-      "menuimage": "assets/Images/menu-soup4.jpg",
+      "menuimage": "assets/Images/menu-soup3.jpg",
       "menuquantity": 1,
-      "userEmail": "sarulathadhavamani@gmail.com",
+      "userEmail": "tamil@gmail.com",
       "id": 1
     },
     {
-      "menuId": 4,
-      "menuname": "Mutton Pepper Soup",
-      "menuprice": "140",
+      "menuId": 2,
+      "menuname": "Mushroom & Garlic Pepper Soup",
+      "menuprice": "95",
       "menucategory": "Soup",
-      "menuimage": "assets/Images/menu-soup4.jpg",
-      "menuquantity": 4,
-      "userEmail": "sarulathadhavamani@gmail.com",
+      "menuimage": "assets/Images/menu-soup2.jpg",
+      "menuquantity": 1,
+      "userEmail": "tamil@gmail.com",
       "id": 2
     },
     {
-      "menuId": 4,
-      "menuname": "Mutton Pepper Soup",
-      "menuprice": "140",
+      "menuId": 2,
+      "menuname": "Mushroom & Garlic Pepper Soup",
+      "menuprice": "95",
       "menucategory": "Soup",
-      "menuimage": "assets/Images/menu-soup4.jpg",
-      "menuquantity": 4,
-      "userEmail": "sarulathadhavamani@gmail.com",
+      "menuimage": "assets/Images/menu-soup2.jpg",
+      "menuquantity": 1,
+      "userEmail": "tamil@gmail.com",
       "id": 3
     }
   ]

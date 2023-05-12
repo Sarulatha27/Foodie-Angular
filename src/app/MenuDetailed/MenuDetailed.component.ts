@@ -20,7 +20,6 @@ export class MenuDetailedComponent implements OnInit {
     let menuid = this.route.snapshot.paramMap.get('check'); // to get the id from url
     menuid && this.menus.getMenuById(menuid).subscribe((result) => {
       this.menuData = result; // to get the menu by sending id and store it in menudata
-    })
 
      // to display remove to cart only when user is logged in and when it is in localstorage
       let cartData = localStorage.getItem('localCart');
@@ -31,7 +30,25 @@ export class MenuDetailedComponent implements OnInit {
           this.removeCart = true; }
         else{
           this.removeCart = false;}
+      } 
+
+      let user = localStorage.getItem('user');
+      if(user){
+      let userEmail = user && JSON.parse(user).email; 
+      this.menus.getCartList(userEmail);
+
+
+      this.menus.cartDataItem.subscribe((result)=>{
+        let item = result.filter((item:any)=>
+        menuid?.toString() === item.menuId.toString());
+        if(item.length){
+          this.removeCart = true;
+        }
+      })
       }
+      
+      
+    })
     }
 
     // quantity + or -
@@ -56,6 +73,7 @@ export class MenuDetailedComponent implements OnInit {
       this.menuData.userEmail = userEmail;
       this.menus.AddToCartLocal(this.menuData);
       this.removeCart = true; 
+
       // to add menu item in cart in db.json
       let cartData ={
         menuId:this.menuData.id,
@@ -64,8 +82,10 @@ export class MenuDetailedComponent implements OnInit {
       delete cartData.id;
       this.menus.addToCartDB(cartData).subscribe((result)=>{
         if(result){
-          alert('Menu is added in cart');
-          // localStorage.removeItem('localCart');
+          alert('Menu is added in cart'); 
+          this.menus.getCartList(userEmail);
+          localStorage.removeItem('localCart');
+          this.removeCart=true;
         }
       })
       }      

@@ -24,9 +24,10 @@ export class MenuItemService {
     return this.http.get(`http://localhost:3000/MenuItems/${id}`);
   }
 
-  // Add to cart
   // to dynamically increse number of menu in cart in header cart(5)..
   cartDataItem = new EventEmitter<[]>;
+
+ // Add to cart
   AddToCartLocal(data:[]){
     let cartData = [];
     let localCart = localStorage.getItem('localCart');
