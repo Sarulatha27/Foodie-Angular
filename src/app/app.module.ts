@@ -14,12 +14,10 @@ import { ContactComponent } from './Contact/Contact.component';
 import { CartComponent } from './Cart/Cart.component';
 import { LoginComponent } from './Login/Login.component';
 import { RegisterComponent } from './Register/Register.component';
-import { CustomerProfileComponent } from './CustomerProfile/CustomerProfile.component';
 import { CheckoutComponent } from './Checkout/Checkout.component';
 import { OrdersComponent } from './Orders/Orders.component';
 
 import { AdminComponent } from './Admin/Admin.component';
-import { AdminProfileComponent } from './AdminProfile/AdminProfile.component';
 import { AdminOrderDetailsComponent } from './AdminOrderDetails/AdminOrderDetails.component';
 import { AdminQueriesComponent } from './AdminQueries/AdminQueries.component';
 import { AdminCustomerDetailsComponent } from './AdminCustomerDetails/AdminCustomerDetails.component';
@@ -31,9 +29,10 @@ import { Ng2OrderModule } from 'ng2-order-pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MenuDetailedComponent } from './MenuDetailed/MenuDetailed.component';
+import { AdminProfileComponent } from './AdminProfile/AdminProfile.component';
 
 @NgModule({
-  declarations: [		
+  declarations: [			
     AppComponent,
     HeaderComponent,
     FooterComponent,
@@ -44,19 +43,18 @@ import { MenuDetailedComponent } from './MenuDetailed/MenuDetailed.component';
     CartComponent,
     LoginComponent,
     RegisterComponent,
-    CustomerProfileComponent,
     CheckoutComponent,
     OrdersComponent,
 
     AdminComponent,
-    AdminProfileComponent,
     AdminOrderDetailsComponent,
     AdminQueriesComponent,
     AdminCustomerDetailsComponent,
     AdminMenuEditComponent,
     HeaderComponent,
     FooterComponent,
-      MenuDetailedComponent
+    MenuDetailedComponent,
+    AdminProfileComponent
    ],
   imports: [
     BrowserModule,

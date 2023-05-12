@@ -5,18 +5,17 @@ import { AdminComponent } from './Admin/Admin.component';
 import { AdminCustomerDetailsComponent } from './AdminCustomerDetails/AdminCustomerDetails.component';
 import { AdminMenuEditComponent } from './AdminMenuEdit/AdminMenuEdit.component';
 import { AdminOrderDetailsComponent } from './AdminOrderDetails/AdminOrderDetails.component';
-import { AdminProfileComponent } from './AdminProfile/AdminProfile.component';
 import { AdminQueriesComponent } from './AdminQueries/AdminQueries.component';
 import { CartComponent } from './Cart/Cart.component';
 import { CheckoutComponent } from './Checkout/Checkout.component';
 import { ContactComponent } from './Contact/Contact.component';
-import { CustomerProfileComponent } from './CustomerProfile/CustomerProfile.component';
 import { HomeComponent } from './Home/Home.component';
 import { LoginComponent } from './Login/Login.component';
 import { MenuComponent } from './Menu/Menu.component';
 import { OrdersComponent } from './Orders/Orders.component';
 import { RegisterComponent } from './Register/Register.component';
 import { MenuDetailedComponent } from './MenuDetailed/MenuDetailed.component';
+import { AdminProfileComponent } from './AdminProfile/AdminProfile.component';
 
 const routes: Routes = [
   {
@@ -52,20 +51,12 @@ const routes: Routes = [
     component: CartComponent
   },
   {
-    path: 'profile',
-    component: CustomerProfileComponent
-  },
-  {
     path: 'checkout',
     component: CheckoutComponent
   },
   {
     path: 'orders',
     component: OrdersComponent
-  },
-  {
-    path: 'customerprofile',
-    component: CustomerProfileComponent
   },
   {
     path: 'admin',

@@ -9,7 +9,7 @@
         <h3><span>Price : </span>{{menuData.menuprice | currency:'INR'}}</h3>
         <h3><span>Category : </span>{{menuData.menucategory}}</h3>
         <div class="quantity">
-          <button (click)="handleQuantity('min')">-</button>
+          <button (click)="handleQuantity('minus')">-</button>
           <input type="text" value="{{menuQuantity}}">
           <button (click)="handleQuantity('plus')">+</button>
         </div>

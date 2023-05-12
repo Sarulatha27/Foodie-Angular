@@ -11,11 +11,23 @@ export class HeaderComponent implements OnInit {
 
   userEmail: any;
   menuType: string = 'default';
-  cartItems = 0;
+
+  // variable to display number of menu present in cart in header
+  cartItems=0;
+
   constructor(public router: Router, private menu: MenuItemService) {
+  // to change the number of menu present in cart in header
+    let cartData = localStorage.getItem('localCart');
+    if(cartData){
+      this.cartItems = JSON.parse(cartData).length;
+    }
+    this.menu.cartDataItem.subscribe((items:any)=>{
+      this.cartItems = items.length;
+    })
   }
 
   ngOnInit() {
+    // to change nav bar in header
     if (localStorage.getItem('user')) {
       let userStore = localStorage.getItem('user');
       let userData = userStore && JSON.parse(userStore);
@@ -25,15 +37,6 @@ export class HeaderComponent implements OnInit {
     else {
       this.menuType = 'default';
     }
-
-    // for cart
-    let cartData = localStorage.getItem('localCart');
-    if (cartData) {
-      this.cartItems = JSON.parse(cartData).length;
-    }
-    this.menu.cartData.subscribe((items) => {
-      this.cartItems = items.length;
-    });
   }
 
   userLogout() {
@@ -41,4 +44,5 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/home']);
     window.location.reload();
   }
+  
 }

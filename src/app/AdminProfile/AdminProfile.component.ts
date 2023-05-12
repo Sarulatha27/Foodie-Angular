@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./AdminProfile.component.css']
 })
 export class AdminProfileComponent implements OnInit {
+
   adminProfile:any;
 
   constructor(private http: HttpClient) { }

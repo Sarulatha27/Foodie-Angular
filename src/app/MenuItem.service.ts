@@ -7,8 +7,6 @@ import { EventEmitter, Injectable } from '@angular/core';
 export class MenuItemService {
   url: any = 'http://localhost:3000/MenuItems';
 
-  cartData = new EventEmitter<any>();// to display dynamically number of cartItems in cart Component
-
   constructor(private http: HttpClient) {}
 
   // used in admin component to add the menu
@@ -26,28 +24,39 @@ export class MenuItemService {
     return this.http.get(`http://localhost:3000/MenuItems/${id}`);
   }
 
-  // used to add menu in cart in local storage
-  localAddToCart(data:any){
+  // Add to cart
+  // to dynamically increse number of menu in cart in header cart(5)..
+  cartDataItem = new EventEmitter<[]>;
+  AddToCartLocal(data:[]){
     let cartData = [];
     let localCart = localStorage.getItem('localCart');
+    // to add menu in local storage when it is not have anything
     if(!localCart){
       localStorage.setItem('localCart',JSON.stringify([data]));
     }
+
+    // to add menu in local storage along with the previsouly added menu when localcart is empty
     else{
       cartData = JSON.parse(localCart);
       cartData.push(data);
       localStorage.setItem('localCart',JSON.stringify(cartData));
-      this.cartData.emit(cartData);
-    } 
+      this.cartDataItem.emit(cartData);
+    }
   }
-  // used to remove menu in cart in local storage
-  removeItemFromCart(menuId:number){
+
+  RemoveToCartLocal(menuid:number){
     let cartData = localStorage.getItem('localCart');
     if(cartData){
       let items = JSON.parse(cartData);
-      items=items.filter((item:any)=> menuId !== item.id);
+      items = items.filter((item:any)=>menuid !== item.id);
       localStorage.setItem('localCart',JSON.stringify(items));
-      this.cartData.emit(items);
+      this.cartDataItem.emit(items);
     }
   }
+
+  // to add menu in cart in db.json
+  addToCartDB(menuData:any){
+    return this.http.post('http://localhost:3000/Cart',menuData)
+  }
+
 }

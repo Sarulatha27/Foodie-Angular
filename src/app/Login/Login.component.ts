@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MenuItemService } from '../MenuItem.service';
 
 @Component({
   selector: 'app-Login',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   submitted: boolean = false;
 
-  constructor(private formbuilder: FormBuilder, private http: HttpClient, private router: Router) { }
+  constructor(private formbuilder: FormBuilder, private http: HttpClient, private router: Router,private menu:MenuItemService) { }
 
   LoginForm = this.formbuilder.group({
     email: ["", [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
@@ -70,6 +71,6 @@ export class LoginComponent implements OnInit {
         this.errors = true;
       }
     })
-
   }
+
 }
