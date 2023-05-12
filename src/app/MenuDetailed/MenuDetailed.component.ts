@@ -58,8 +58,8 @@ export class MenuDetailedComponent implements OnInit {
       this.removeCart = true; 
       // to add menu item in cart in db.json
       let cartData ={
-        ...this.menuData,
-        menuId:this.menuData.id
+        menuId:this.menuData.id,
+        ...this.menuData
       }
       delete cartData.id;
       this.menus.addToCartDB(cartData).subscribe((result)=>{
