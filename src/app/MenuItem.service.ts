@@ -59,4 +59,13 @@ export class MenuItemService {
     return this.http.post('http://localhost:3000/Cart',menuData)
   }
 
+  getCartList(userEmail:string){
+    return this.http.get<any>(`http://localhost:3000/Cart?userEmail=`+userEmail,{
+      observe:'response'
+    }).subscribe((result)=>{
+      if(result && result.body){
+        this.cartDataItem.emit(result.body);
+      }
+    })
+  }
 }

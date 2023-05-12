@@ -47,11 +47,11 @@ export class MenuDetailedComponent implements OnInit {
 
     // add to cart when user is logged in
     addToCart(){
-      if(this.menuData && localStorage.getItem('user')){
-      this.menuData.menuquantity = this.menuQuantity;
       // to check which user is logged in and add that user email in along with menu details
       let user = localStorage.getItem('user');
       let userEmail = user && JSON.parse(user).email;
+      if(this.menuData && localStorage.getItem('user')){
+      this.menuData.menuquantity = this.menuQuantity;
       // to store menu in cart along with user email
       this.menuData.userEmail = userEmail;
       this.menus.AddToCartLocal(this.menuData);
@@ -65,6 +65,7 @@ export class MenuDetailedComponent implements OnInit {
       this.menus.addToCartDB(cartData).subscribe((result)=>{
         if(result){
           alert('Menu is added in cart');
+          // localStorage.removeItem('localCart');
         }
       })
       }      
@@ -78,5 +79,6 @@ export class MenuDetailedComponent implements OnInit {
       this.menus.RemoveToCartLocal(menuid);
       this.removeCart = false;
     }
+
 }
 

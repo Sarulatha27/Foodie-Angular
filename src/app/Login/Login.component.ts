@@ -12,7 +12,7 @@ import { MenuItemService } from '../MenuItem.service';
 export class LoginComponent implements OnInit {
   submitted: boolean = false;
 
-  constructor(private formbuilder: FormBuilder, private http: HttpClient, private router: Router,private menu:MenuItemService) { }
+  constructor(private formbuilder: FormBuilder, private http: HttpClient, private router: Router,private menuservice:MenuItemService) { }
 
   LoginForm = this.formbuilder.group({
     email: ["", [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
@@ -72,5 +72,4 @@ export class LoginComponent implements OnInit {
       }
     })
   }
-
 }

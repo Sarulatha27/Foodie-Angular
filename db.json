@@ -246,5 +246,36 @@
       "menuimage": "assets/Images/menu-ice5.jpg"
     }
   ],
-  "Cart": []
+  "Cart": [
+    {
+      "menuId": 4,
+      "menuname": "Mutton Pepper Soup",
+      "menuprice": "140",
+      "menucategory": "Soup",
+      "menuimage": "assets/Images/menu-soup4.jpg",
+      "menuquantity": 1,
+      "userEmail": "sarulathadhavamani@gmail.com",
+      "id": 1
+    },
+    {
+      "menuId": 4,
+      "menuname": "Mutton Pepper Soup",
+      "menuprice": "140",
+      "menucategory": "Soup",
+      "menuimage": "assets/Images/menu-soup4.jpg",
+      "menuquantity": 4,
+      "userEmail": "sarulathadhavamani@gmail.com",
+      "id": 2
+    },
+    {
+      "menuId": 4,
+      "menuname": "Mutton Pepper Soup",
+      "menuprice": "140",
+      "menucategory": "Soup",
+      "menuimage": "assets/Images/menu-soup4.jpg",
+      "menuquantity": 4,
+      "userEmail": "sarulathadhavamani@gmail.com",
+      "id": 3
+    }
+  ]
 }
