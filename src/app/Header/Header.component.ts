@@ -42,7 +42,7 @@ export class HeaderComponent implements OnInit {
 
   userLogout() {
     localStorage.removeItem('user');
-    this.router.navigate(['/home']);
+    this.router.navigate(['home']);
     window.location.reload();
   }
   

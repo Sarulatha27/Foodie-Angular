@@ -12,7 +12,9 @@ export class MenuDetailedComponent implements OnInit {
 
   menuData: any;
 
-  removeCart:boolean = false;
+  removeCart: boolean = false;
+
+  CartData2: any | undefined; // to remove from cart
 
   constructor(private menus: MenuItemService, private route: ActivatedRoute) { }
 
@@ -21,84 +23,90 @@ export class MenuDetailedComponent implements OnInit {
     menuid && this.menus.getMenuById(menuid).subscribe((result) => {
       this.menuData = result; // to get the menu by sending id and store it in menudata
 
-     // to display remove to cart only when user is logged in and when it is in localstorage
+      // to display remove to cart only when user is logged in and when it is in localstorage
       let cartData = localStorage.getItem('localCart');
-      if( menuid && cartData && localStorage.getItem('user')){
+      if (menuid && cartData && localStorage.getItem('user')) {
         let items = JSON.parse(cartData);
-        items = items.filter((item:any)=>menuid === item.id.toString());
-        if(items.length){
-          this.removeCart = true; }
-        else{
-          this.removeCart = false;}
-      } 
-
-      let user = localStorage.getItem('user');
-      if(user){
-      let userEmail = user && JSON.parse(user).email; 
-      this.menus.getCartList(userEmail);
-
-
-      this.menus.cartDataItem.subscribe((result)=>{
-        let item = result.filter((item:any)=>
-        menuid?.toString() === item.menuId.toString());
-        if(item.length){
+        items = items.filter((item: any) => menuid === item.id.toString());
+        if (items.length) {
           this.removeCart = true;
         }
-      })
+        else {
+          this.removeCart = false;
+        }
       }
-      
-      
-    })
-    }
 
-    // quantity + or -
-    menuQuantity: number = 1;
-    handleQuantity(val:string){
-      if(this.menuQuantity < 20 && val==='plus'){
-        this.menuQuantity+=1;
-      }
-      else if(this.menuQuantity > 20 && val==='minus'){
-        this.menuQuantity-=1;
-      }
-    }
-
-    // add to cart when user is logged in
-    addToCart(){
-      // to check which user is logged in and add that user email in along with menu details
       let user = localStorage.getItem('user');
-      let userEmail = user && JSON.parse(user).email;
-      if(this.menuData && localStorage.getItem('user')){
+      if (user) {
+        let userEmail = user && JSON.parse(user).email;
+        this.menus.getCartList(userEmail);
+        this.menus.cartDataItem.subscribe((result) => {
+          let item = result.filter((item: any) =>
+            menuid?.toString() === item.menuId.toString());
+          if (item.length) {
+            this.CartData2 = item[0];  //to remove cart
+            this.removeCart = true;
+          }
+        })
+      }
+    })
+  }
+
+  // quantity + or -
+  menuQuantity: number = 1;
+  handleQuantity(val: string) {
+    if (this.menuQuantity < 20 && val === 'plus') {
+      this.menuQuantity += 1;
+    }
+    else if (this.menuQuantity > 20 && val === 'minus') {
+      this.menuQuantity -= 1;
+    }
+  }
+
+  // add to cart when user is logged in
+  addToCart() {
+    // to check which user is logged in and add that user email in along with menu details
+    let user = localStorage.getItem('user');
+    let userEmail = user && JSON.parse(user).email;
+    if (this.menuData && localStorage.getItem('user')) {
       this.menuData.menuquantity = this.menuQuantity;
       // to store menu in cart along with user email
       this.menuData.userEmail = userEmail;
       this.menus.AddToCartLocal(this.menuData);
-      this.removeCart = true; 
+      this.removeCart = true;
 
       // to add menu item in cart in db.json
-      let cartData ={
-        menuId:this.menuData.id,
+      let cartData = {
+        menuId: this.menuData.id,
         ...this.menuData
       }
       delete cartData.id;
-      this.menus.addToCartDB(cartData).subscribe((result)=>{
-        if(result){
-          alert('Menu is added in cart'); 
+      this.menus.addToCartDB(cartData).subscribe((result) => {
+        if (result) {
+          alert('Menu is added in cart');
           this.menus.getCartList(userEmail);
           localStorage.removeItem('localCart');
-          this.removeCart=true;
+          this.removeCart = true;
         }
       })
-      }      
-      else{
+    }
+    else {
       alert('please login to add menu to cart');
-      }
     }
+  }
 
-    // remove from cart when user is logged in and when menu is in cart
-    removeToCart(menuid:number){
-      this.menus.RemoveToCartLocal(menuid);
-      this.removeCart = false;
+  removeFromCart(menuid: number) {
+    if (localStorage.getItem('user')) {
+      console.warn('cartData2', this.CartData2);
+      this.CartData2 && this.menus.romoveFromCart(this.CartData2.id)
+        .subscribe((result) => {
+          let user = localStorage.getItem('user');
+          let userEmail = user && JSON.parse(user).email;
+          this.menus.getCartList(userEmail);
+          this.removeCart = false;
+        })
     }
+  }
 
 }
 

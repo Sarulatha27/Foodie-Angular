@@ -36,8 +36,7 @@ export class MenuItemService {
       localStorage.setItem('localCart',JSON.stringify([data]));
       this.cartDataItem.emit(data);
     }
-
-    // to add menu in local storage along with the previsouly added menu when localcart is empty
+    // to add menu in local storage along with the previsouly added menu when localcart already have menu
     else{
       cartData = JSON.parse(localCart);
       cartData.push(data);
@@ -46,21 +45,12 @@ export class MenuItemService {
     }
   }
 
-  RemoveToCartLocal(menuid:number){
-    let cartData = localStorage.getItem('localCart');
-    if(cartData){
-      let items = JSON.parse(cartData);
-      items = items.filter((item:any)=>menuid !== item.id);
-      localStorage.setItem('localCart',JSON.stringify(items));
-      this.cartDataItem.emit(items);
-    }
-  }
-
   // to add menu in cart in db.json
   addToCartDB(menuData:any){
     return this.http.post('http://localhost:3000/Cart',menuData)
   }
 
+  // to get the cart list item number 
   getCartList(userEmail:string){
     return this.http.get<any>(`http://localhost:3000/Cart?userEmail=`+userEmail,{
       observe:'response'
@@ -69,5 +59,10 @@ export class MenuItemService {
         this.cartDataItem.emit(result.body);
       }
     })
+  }
+
+  // remove from cart
+  romoveFromCart(id:number){
+    return this.http.delete(`http://localhost:3000/Cart/`+id);
   }
 }
