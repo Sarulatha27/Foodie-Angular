@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.cart-section {
+    padding: 0 4%;
+    margin-top: 80px;
+    margin-bottom: 30px;
+}
+
+.container {
+    margin-top: 40px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+table {
+    width: 800px;
+    border-collapse: collapse;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+th {
+    padding: 15px 25px;
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    font-size: 16px;
+    font-weight: 900;
+    background-color: var(--black);
+    color: var(--yellow);
+    text-align: center;
+}
+
+td {
+    padding: 15px 25px;
+    font-size: 15px;
+    text-align: center;
+}
+
+img {
+    height: 80px;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: var(--black);
+    color: var(--white);
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    color: var(--black);
+    background-color: var(--yellow);
+}
+
+.summary {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border-radius: 4px;
+    height: 390px;
+}
+
+.summary h1 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    line-height: 50px;
+    font-weight: 700;
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    color: var(--orange);
+    background-color: var(--black);
+}
+
+.summary td {
+    text-align: left;
+    padding: 10px 15px;
+}
+
+.summary .button {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.total td{
+    color: var(--orange);
+    font-size: 18px;
+    font-weight: 600;
+}

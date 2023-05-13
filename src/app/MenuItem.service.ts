@@ -65,4 +65,11 @@ export class MenuItemService {
   romoveFromCart(id:number){
     return this.http.delete(`http://localhost:3000/Cart/`+id);
   }
+
+  // 14.5
+  Cart(){
+    let userStore = localStorage.getItem('user');
+    let userData = userStore && JSON.parse(userStore);
+    return this.http.get<any>(`http://localhost:3000/Cart?userEmail=`+userData.email)
+  }
 }

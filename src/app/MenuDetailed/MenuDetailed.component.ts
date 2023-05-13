@@ -97,7 +97,6 @@ export class MenuDetailedComponent implements OnInit {
 
   removeFromCart(menuid: number) {
     if (localStorage.getItem('user')) {
-      console.warn('cartData2', this.CartData2);
       this.CartData2 && this.menus.romoveFromCart(this.CartData2.id)
         .subscribe((result) => {
           let user = localStorage.getItem('user');

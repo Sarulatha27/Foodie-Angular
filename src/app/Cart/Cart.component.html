@@ -1,0 +1,66 @@
+<section class="cart-section">
+    <div class="section-heading">
+      <h1>My Cart</h1>
+    </div>
+    <div class="container">
+        <div class="cart-details">
+            <table>
+                <thead>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cart of cartItemData">
+                        <td><img src="{{cart.menuimage}}" alt=""></td>
+                        <td>{{cart.menuname}}</td>
+                        <td>{{cart.menuprice | currency:'INR'}}</td>
+                        <td>{{cart.menuquantity}}</td>
+                        <td><button>Remove</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="summary">
+            <h1>Order Summary</h1>
+            <div>
+                <tr>
+                    <td>Type of Order : </td>
+                    <td><select>
+                        <option value="">Dine In</option>
+                        <option value="">Take Away</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td>Time : </td>
+                    <td><input type="time"></td>
+                </tr>
+                <tr>
+                    <td>Payment Options : </td>
+                    <td><select>
+                        <option value="">Cash</option>
+                        <option value="">Card</option>
+                        <option value="">UPI</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td>Amount : </td>
+                    <td>{{orderSummary.price | currency:'INR'}}</td>
+                </tr>
+                <tr>
+                    <td>GST : </td>
+                    <td>{{orderSummary.gst | currency:'INR'}}</td>
+                </tr>
+                <tr class="total">
+                    <td>Total Amount : </td>
+                    <td>{{orderSummary.total | currency:'INR'}}</td>
+                </tr>
+            </div>
+            <div class="button">
+                <button>Checkout</button>
+            </div>
+        </div>
+    </div>
+</section>

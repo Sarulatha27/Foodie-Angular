@@ -20,7 +20,7 @@ export class AdminComponent implements OnInit {
 
   logout(){
     localStorage.removeItem('admin');
-    this.route.navigate(['/home']);
+    this.route.navigate(['home']);
   }
 
 }

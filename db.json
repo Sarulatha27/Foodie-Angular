@@ -246,5 +246,26 @@
       "menuimage": "assets/Images/menu-ice5.jpg"
     }
   ],
-  "Cart": []
+  "Cart": [
+    {
+      "menuId": 25,
+      "menuname": "Electric Blueberry Ice Cream",
+      "menuprice": "130",
+      "menucategory": "Ice Cream",
+      "menuimage": "assets/Images/menu-ice4.jpg",
+      "menuquantity": 4,
+      "userEmail": "sarulathadhavamani@gmail.com",
+      "id": 1
+    },
+    {
+      "menuId": 2,
+      "menuname": "Mushroom & Garlic Pepper Soup",
+      "menuprice": "95",
+      "menucategory": "Soup",
+      "menuimage": "assets/Images/menu-soup2.jpg",
+      "menuquantity": 1,
+      "userEmail": "sarulathadhavamani@gmail.com",
+      "id": 2
+    }
+  ]
 }
