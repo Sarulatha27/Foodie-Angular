@@ -1,47 +1,93 @@
 <section class="cart-section">
-    <div class="section-heading">
-      <h1>My Cart</h1>
+  <div class="section-heading">
+    <h1>My Cart</h1>
+  </div>
+  <router-outlet></router-outlet>
+  <div class="container">
+    <div class="cart-details">
+      <table>
+        <thead>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Action</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cart of cartItemData">
+            <td><img src="{{ cart.menuimage }}" alt="" /></td>
+            <td>{{ cart.menuname }}</td>
+            <td>{{ cart.menuprice | currency : "INR" }}</td>
+            <td>{{ cart.menuquantity }}</td>
+            <td><button>Remove</button></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div class="container">
-        <div class="cart-details">
-            <table>
-                <thead>
-                    <th>Image</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Action</th>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let cart of cartItemData">
-                        <td><img src="{{cart.menuimage}}" alt=""></td>
-                        <td>{{cart.menuname}}</td>
-                        <td>{{cart.menuprice | currency:'INR'}}</td>
-                        <td>{{cart.menuquantity}}</td>
-                        <td><button>Remove</button></td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="summary">
+      <h1>Order Summary</h1>
+      <div>
+        <tr>
+          <td>Amount :</td>
+          <td>{{ orderSummary.price | currency : "INR" }}</td>
+        </tr>
+        <tr>
+          <td>GST :</td>
+          <td>{{ orderSummary.gst | currency : "INR" }}</td>
+        </tr>
+        <tr class="total">
+          <td>Total Amount :</td>
+          <td>{{ orderSummary.total | currency : "INR" }}</td>
+        </tr>
+        <div class="button">
+          <button (click)="toggleCase()">Checkout</button>
         </div>
-        <div class="summary">
-            <h1>Cart Summary</h1>
-            <div>
-                <tr>
-                    <td>Amount : </td>
-                    <td>{{orderSummary.price | currency:'INR'}}</td>
-                </tr>
-                <tr>
-                    <td>GST : </td>
-                    <td>{{orderSummary.gst | currency:'INR'}}</td>
-                </tr>
-                <tr class="total">
-                    <td>Total Amount : </td>
-                    <td>{{orderSummary.total | currency:'INR'}}</td>
-                </tr>
-            </div>
-            <div class="button">
-                <button (click)="checkout()">Checkout</button>
-            </div>
+      </div>
+      <form
+        *ngIf="checkoutStatus"
+        #orderDetails="ngForm"
+        (ngSubmit)="orderNow(orderDetails.value)"
+      >
+      <tr>
+        <td>Alternate Mobile No</td>
+        <td><input type="number" name="Alternate_Mobile_No" ngModel required></td>
+      </tr>
+        <tr>
+          <td>Mode of Order</td>
+          <td>
+            <select name="Mode_of_Order" ngModel required>
+              <option value="Dine-In">Dine-In</option>
+              <option value="Take Out">Take Out</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Mode of Payment</td>
+          <td>
+            <select name="Mode_of_Payment" ngModel required>
+              <option value="Cash">Cash</option>
+              <option value="Card">Card</option>
+              <option value="UPI">UPI</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Pickup Time</td>
+          <td>
+            <input
+              name="Pickup_Time"
+              type="time"
+              min="16:00:00"
+              max="22:00:00"
+              ngModel
+              required
+            />
+          </td>
+        </tr>
+        <div class="button">
+          <button>Order Now</button>
         </div>
+      </form>
     </div>
+  </div>
 </section>

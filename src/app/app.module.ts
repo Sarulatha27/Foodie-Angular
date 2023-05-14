@@ -14,7 +14,6 @@ import { ContactComponent } from './Contact/Contact.component';
 import { CartComponent } from './Cart/Cart.component';
 import { LoginComponent } from './Login/Login.component';
 import { RegisterComponent } from './Register/Register.component';
-import { CheckoutComponent } from './Checkout/Checkout.component';
 import { OrdersComponent } from './Orders/Orders.component';
 
 import { AdminComponent } from './Admin/Admin.component';
@@ -43,7 +42,6 @@ import { AdminProfileComponent } from './AdminProfile/AdminProfile.component';
     CartComponent,
     LoginComponent,
     RegisterComponent,
-    CheckoutComponent,
     OrdersComponent,
 
     AdminComponent,

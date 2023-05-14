@@ -4,7 +4,8 @@
 }
 
 .cart-section {
-    padding: 0 4%;
+    padding:0 4%;
+    padding-left: 7%;
     margin-top: 80px;
     margin-bottom: 30px;
 }
@@ -65,7 +66,8 @@ button:hover {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
     overflow: hidden;
     border-radius: 4px;
-    height: 260px;
+    height: 530px;
+    width: 305px;
 }
 
 .summary h1 {
@@ -79,7 +81,7 @@ button:hover {
     background-color: var(--black);
 }
 
-.summary td {
+.summary td{
     text-align: left;
     padding: 10px 15px;
 }
@@ -93,8 +95,14 @@ button:hover {
     width: 80%;
     margin: 10px;
 }
+
 .total td{
     color: var(--orange);
     font-size: 18px;
     font-weight: 600;
+}
+
+select,input[type='number']{
+    width: 105px;
+    height: 25px;
 }

@@ -7,7 +7,6 @@ import { AdminMenuEditComponent } from './AdminMenuEdit/AdminMenuEdit.component'
 import { AdminOrderDetailsComponent } from './AdminOrderDetails/AdminOrderDetails.component';
 import { AdminQueriesComponent } from './AdminQueries/AdminQueries.component';
 import { CartComponent } from './Cart/Cart.component';
-import { CheckoutComponent } from './Checkout/Checkout.component';
 import { ContactComponent } from './Contact/Contact.component';
 import { HomeComponent } from './Home/Home.component';
 import { LoginComponent } from './Login/Login.component';
@@ -49,10 +48,6 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent
-  },
-  {
-    path: 'checkout',
-    component: CheckoutComponent
   },
   {
     path: 'orders',

@@ -19,10 +19,11 @@ export class CartComponent implements OnInit {
     total:0
   };
 
-  time:any;
-  
+  MobileNo:any;
 
-  constructor(private menuservice:MenuItemService,private router:Router) { }
+  checkoutStatus:boolean = false;
+  
+  constructor(private menuservice:MenuItemService,private router:Router,private http:HttpClient) { }
 
   ngOnInit() {
     this.menuservice.Cart().subscribe((data)=>{
@@ -38,10 +39,38 @@ export class CartComponent implements OnInit {
       this.orderSummary.gst = price/10;
       this.orderSummary.total = price+(price/10);
     })
+
+    this.http.get("http://localhost:3000/RegisteredUsers").subscribe((users:any) => {
+      users.forEach((item:any)=>{
+      let user = localStorage.getItem('user');
+      let userEmail = user && JSON.parse(user).email;
+      if(item.email === userEmail){
+       this.MobileNo=  item.mobile;
+      }
+     })
+     });  
   }
 
-  checkout(){
-    this.router.navigate(['/checkout']);
+  toggleCase(){
+    this.checkoutStatus =! this.checkoutStatus;
   }
 
+  orderNow(data:any){
+    let user = localStorage.getItem('user');
+    let userEmail = user && JSON.parse(user).email;
+
+    if(this.orderSummary.total){
+      let orderDetails = {
+        Email_Id: userEmail,
+        Mobile_No: this.MobileNo,
+        Total_Amount: this.orderSummary.total,
+        ...data,
+      }
+      this.menuservice.orderNow(orderDetails).subscribe((res)=>{
+        if(res){
+          alert('Your order is placed');
+        }
+      })
+    }
+  }
 }
