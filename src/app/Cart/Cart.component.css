@@ -65,7 +65,7 @@ button:hover {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
     overflow: hidden;
     border-radius: 4px;
-    height: 390px;
+    height: 260px;
 }
 
 .summary h1 {
@@ -89,6 +89,10 @@ button:hover {
     text-align: center;
 }
 
+.summary .button button{
+    width: 80%;
+    margin: 10px;
+}
 .total td{
     color: var(--orange);
     font-size: 18px;

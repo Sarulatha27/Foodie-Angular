@@ -1,3 +1,33 @@
-<p>
-  Checkout works!
-</p>
+<section class="checkout-section">
+  <div class="section-heading">
+    <h1>Checkout</h1>
+  </div>
+  <div class="container">
+     <h3>Add Order Details</h3>
+     <div>
+      <h2>Total Amount: {{totalAmount|currency:'INR'}}</h2>
+     </div>
+      <form #orderDetails="ngForm" (ngSubmit)="orderNow(orderDetails.value)">
+        <div>
+          <label>Mode of Order</label>
+          <select name="Mode_of_Order" ngModel required>
+            <option value="Dine-In">Dine-In</option>
+            <option value="Take Out">Take Out</option>
+          </select>
+        </div>
+        <div>
+          <label>Mode of Payment</label>
+          <select name="Mode_of_Payment" ngModel required> 
+            <option value="Cash">Cash</option>
+            <option value="Card">Card</option>
+            <option value="UPI">UPI</option>
+          </select>
+        </div>
+        <div>
+          <label>Pickup Time</label>
+          <input name="Pickup_Time" type="time" min="16:00:00" max="22:00:00" ngModel required>
+        </div>
+        <button class="order">Order Now</button>
+      </form>
+    </div>
+</section>

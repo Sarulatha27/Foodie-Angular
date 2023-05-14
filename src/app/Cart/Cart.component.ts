@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MenuItemService } from '../MenuItem.service';
 import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-Cart',
@@ -21,7 +22,7 @@ export class CartComponent implements OnInit {
   time:any;
   
 
-  constructor(private menuservice:MenuItemService) { }
+  constructor(private menuservice:MenuItemService,private router:Router) { }
 
   ngOnInit() {
     this.menuservice.Cart().subscribe((data)=>{
@@ -36,10 +37,11 @@ export class CartComponent implements OnInit {
       this.orderSummary.price = price;
       this.orderSummary.gst = price/10;
       this.orderSummary.total = price+(price/10);
-
-      console.warn(this.time);
-
     })
+  }
+
+  checkout(){
+    this.router.navigate(['/checkout']);
   }
 
 }

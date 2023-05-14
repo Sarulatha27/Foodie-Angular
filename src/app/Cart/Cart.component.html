@@ -24,27 +24,8 @@
             </table>
         </div>
         <div class="summary">
-            <h1>Order Summary</h1>
+            <h1>Cart Summary</h1>
             <div>
-                <tr>
-                    <td>Type of Order : </td>
-                    <td><select>
-                        <option value="">Dine In</option>
-                        <option value="">Take Away</option>
-                    </select></td>
-                </tr>
-                <tr>
-                    <td>Time : </td>
-                    <td><input type="time"></td>
-                </tr>
-                <tr>
-                    <td>Payment Options : </td>
-                    <td><select>
-                        <option value="">Cash</option>
-                        <option value="">Card</option>
-                        <option value="">UPI</option>
-                    </select></td>
-                </tr>
                 <tr>
                     <td>Amount : </td>
                     <td>{{orderSummary.price | currency:'INR'}}</td>
@@ -59,7 +40,7 @@
                 </tr>
             </div>
             <div class="button">
-                <button>Checkout</button>
+                <button (click)="checkout()">Checkout</button>
             </div>
         </div>
     </div>

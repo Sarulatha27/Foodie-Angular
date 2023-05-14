@@ -66,10 +66,16 @@ export class MenuItemService {
     return this.http.delete(`http://localhost:3000/Cart/`+id);
   }
 
-  // 14.5
+  // cart page
   Cart(){
     let userStore = localStorage.getItem('user');
     let userData = userStore && JSON.parse(userStore);
-    return this.http.get<any>(`http://localhost:3000/Cart?userEmail=`+userData.email)
+    return this.http.get<any>(`http://localhost:3000/Cart?userEmail=`+userData.email);
   }
+
+  // Checkout page
+  orderNow(data:any){
+    return this.http.post('http://localhost:3000/Orders',data);
+  }
+  
 }

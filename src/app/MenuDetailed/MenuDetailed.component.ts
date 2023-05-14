@@ -55,10 +55,10 @@ export class MenuDetailedComponent implements OnInit {
   // quantity + or -
   menuQuantity: number = 1;
   handleQuantity(val: string) {
-    if (this.menuQuantity < 20 && val === 'plus') {
+    if (this.menuQuantity <=10 && val === 'plus') {
       this.menuQuantity += 1;
     }
-    else if (this.menuQuantity > 20 && val === 'minus') {
+    else if (this.menuQuantity >=10 && val === 'minus') {
       this.menuQuantity -= 1;
     }
   }
