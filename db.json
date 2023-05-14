@@ -268,56 +268,6 @@
       "id": 2
     },
     {
-      "menuId": 9,
-      "menuname": "Masala French Fries",
-      "menuprice": "119",
-      "menucategory": "French Fries",
-      "menuimage": "assets/Images/menu-fries2.jpg",
-      "menuquantity": 1,
-      "userEmail": "sarulathadhavamani@gmail.com",
-      "id": 3
-    },
-    {
-      "menuId": 12,
-      "menuname": "Chicken N Corn Delight Pizza [6 slices]",
-      "menuprice": "300",
-      "menucategory": "Pizza",
-      "menuimage": "assets/Images/menu-pizza3.jpg",
-      "menuquantity": 1,
-      "userEmail": "sarulathadhavamani@gmail.com",
-      "id": 4
-    },
-    {
-      "menuId": 14,
-      "menuname": "Grilled Veg Burger",
-      "menuprice": "150",
-      "menucategory": "Burger",
-      "menuimage": "assets/Images/menu-burger1.jpg",
-      "menuquantity": 1,
-      "userEmail": "sarulathadhavamani@gmail.com",
-      "id": 5
-    },
-    {
-      "menuId": 18,
-      "menuname": "Bread Omelette Cheese Grilled Sandwich [2 Slices]",
-      "menuprice": "100",
-      "menucategory": "Sandwich",
-      "menuimage": "assets/Images/menu-sand1.jpg",
-      "menuquantity": 1,
-      "userEmail": "sarulathadhavamani@gmail.com",
-      "id": 6
-    },
-    {
-      "menuId": 24,
-      "menuname": "Californian Pistachio Ice Cream",
-      "menuprice": "120",
-      "menucategory": "Ice Cream",
-      "menuimage": "assets/Images/menu-ice3.jpg",
-      "menuquantity": 1,
-      "userEmail": "sarulathadhavamani@gmail.com",
-      "id": 7
-    },
-    {
       "menuId": 1,
       "menuname": "Vegetables Soup",
       "menuprice": "75",
@@ -325,47 +275,8 @@
       "menuimage": "assets/Images/menu-soup1.jpg",
       "menuquantity": 1,
       "userEmail": "tamil@gmail.com",
-      "id": 8
+      "id": 3
     }
   ],
-  "Orders": [
-    {
-      "Email_Id": "sarulathadhavamani@gmail.com",
-      "Mobile_No": "7708715475",
-      "Total_Amount": 1196.8,
-      "Mode_of_Order": "Dine-In",
-      "Mode_of_Payment": "UPI",
-      "Pickup_Time": "16:29",
-      "id": 1
-    },
-    {
-      "Email_Id": "sarulathadhavamani@gmail.com",
-      "Mobile_No": "7708715475",
-      "Total_Amount": 1196.8,
-      "Mode_of_Order": "",
-      "Mode_of_Payment": "",
-      "Pickup_Time": "",
-      "id": 2
-    },
-    {
-      "Email_Id": "sarulathadhavamani@gmail.com",
-      "Mobile_No": "7708715475",
-      "Total_Amount": 1196.8,
-      "Alternate_Mobile_No": 84651,
-      "Mode_of_Order": "Dine-In",
-      "Mode_of_Payment": "Card",
-      "Pickup_Time": "17:04",
-      "id": 3
-    },
-    {
-      "Email_Id": "sarulathadhavamani@gmail.com",
-      "Mobile_No": "7708715475",
-      "Total_Amount": 1196.8,
-      "Alternate_Mobile_No": 4565132,
-      "Mode_of_Order": "",
-      "Mode_of_Payment": "",
-      "Pickup_Time": "",
-      "id": 4
-    }
-  ]
+  "Orders": [ ]
 }
