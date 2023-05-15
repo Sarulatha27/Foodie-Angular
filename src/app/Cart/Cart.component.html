@@ -1,9 +1,18 @@
 <section class="cart-section">
-  <div class="section-heading">
+  <div class="section-heading" *ngIf="!status">
     <h1>My Cart</h1>
   </div>
-  <router-outlet></router-outlet>
-  <div class="container">
+
+  <div *ngIf="status" class="emptycart">
+      <div>
+        <a><img src="assets/Images/Cart.png" alt=""></a>
+        <h2>Your Shopping Cart Is Empty </h2>
+        <a><p>Add menus to it now.</p></a>
+        <a routerLink="/menu"><button>Explore Menu</button></a>
+      </div>
+  </div>
+
+  <div class="container" *ngIf="!status">
     <div class="cart-details">
       <table>
         <thead>
@@ -19,35 +28,29 @@
             <td>{{ cart.menuname }}</td>
             <td>{{ cart.menuprice | currency : "INR" }}</td>
             <td>{{ cart.menuquantity }}</td>
-            <td><button>Remove</button></td>
+            <td><button (click)="removeFromCart(cart.id)">Remove</button></td>
           </tr>
         </tbody>
       </table>
     </div>
     <div class="summary">
       <h1>Order Summary</h1>
-      <div>
-        <tr>
-          <td>Amount :</td>
-          <td>{{ orderSummary.price | currency : "INR" }}</td>
-        </tr>
-        <tr>
-          <td>GST :</td>
-          <td>{{ orderSummary.gst | currency : "INR" }}</td>
-        </tr>
-        <tr class="total">
-          <td>Total Amount :</td>
-          <td>{{ orderSummary.total | currency : "INR" }}</td>
-        </tr>
-        <div class="button">
-          <button (click)="toggleCase()">Checkout</button>
-        </div>
-      </div>
       <form
-        *ngIf="checkoutStatus"
         #orderDetails="ngForm"
         (ngSubmit)="orderNow(orderDetails.value)"
       >
+      <tr>
+        <td>Amount :</td>
+        <td>{{ orderSummary.price | currency : "INR" }}</td>
+      </tr>
+      <tr>
+        <td>GST :</td>
+        <td>{{ orderSummary.gst | currency : "INR" }}</td>
+      </tr>
+      <tr class="total">
+        <td>Total Amount :</td>
+        <td>{{ orderSummary.total | currency : "INR" }}</td>
+      </tr>
       <tr>
         <td>Alternate Mobile No</td>
         <td><input type="number" name="Alternate_Mobile_No" ngModel required></td>

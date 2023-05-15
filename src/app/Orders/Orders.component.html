@@ -1,0 +1,33 @@
+<section class="order-section">
+    <div class="section-heading" *ngIf="!status">
+        <h1>My Orders</h1>
+    </div>
+    <div *ngIf="status" class="emptycart">
+      <div>
+        <a><img src="assets/Images/Order.png" alt=""></a>
+        <h2>Sorry, No Orders Found</h2>
+        <a><p>Order Now.</p></a>
+        <a routerLink="/menu"><button>Explore Menu</button></a>
+      </div>
+    </div>
+    <div class="container" *ngIf="!status">
+      <table class="cart-details">
+        <thead>
+          <th>Order Id</th>
+          <th>Price</th>
+          <th>Status</th>
+          <th>Action</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orderDetails">
+            <td>#{{ order.id }}</td>
+            <td>{{ order.Total_Amount | currency : "INR" }}</td>
+            <td>In Progress</td>
+            <td><button (click)="cancelOrder(order.id)">Cancel Order</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</section>
+
+

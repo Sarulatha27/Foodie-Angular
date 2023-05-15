@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItemService } from '../MenuItem.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ArrayType } from '@angular/compiler';
 
 @Component({
@@ -16,7 +16,7 @@ export class MenuDetailedComponent implements OnInit {
 
   CartData2: any | undefined; // to remove from cart
 
-  constructor(private menus: MenuItemService, private route: ActivatedRoute) { }
+  constructor(private menus: MenuItemService, private route: ActivatedRoute,private router:Router) { }
 
   ngOnInit() {
     let menuid = this.route.snapshot.paramMap.get('check'); // to get the id from url
@@ -72,8 +72,6 @@ export class MenuDetailedComponent implements OnInit {
       this.menuData.menuquantity = this.menuQuantity;
       // to store menu in cart along with user email
       this.menuData.userEmail = userEmail;
-      this.menus.AddToCartLocal(this.menuData);
-      this.removeCart = true;
 
       // to add menu item in cart in db.json
       let cartData = {
@@ -84,6 +82,7 @@ export class MenuDetailedComponent implements OnInit {
       this.menus.addToCartDB(cartData).subscribe((result) => {
         if (result) {
           alert('Menu is added in cart');
+          this.router.navigate(['/menu']);
           this.menus.getCartList(userEmail);
           localStorage.removeItem('localCart');
           this.removeCart = true;

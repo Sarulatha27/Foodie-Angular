@@ -10,6 +10,30 @@
     margin-bottom: 30px;
 }
 
+.emptycart{
+    margin: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.emptycart img{
+    width: 350px;
+    height: 360px;
+    display: flex;
+    margin-top: 15px;
+    justify-content: center;
+}
+.emptycart h2{
+    margin: 20px 0;
+    font-size: 30px;
+}
+.emptycart a{
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+}
+
 .container {
     margin-top: 40px;
     display: flex;
@@ -66,7 +90,7 @@ button:hover {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
     overflow: hidden;
     border-radius: 4px;
-    height: 530px;
+    height: 460px;
     width: 305px;
 }
 

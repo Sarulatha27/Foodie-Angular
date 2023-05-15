@@ -21,25 +21,19 @@ export class CartComponent implements OnInit {
 
   MobileNo:any;
 
-  checkoutStatus:boolean = false;
-  
+  CartData:any;
+
+  OrderMsg="You order has been placed";
+
+  status:boolean=false;
+
+  MenuDetails:any;
   constructor(private menuservice:MenuItemService,private router:Router,private http:HttpClient) { }
 
   ngOnInit() {
-    this.menuservice.Cart().subscribe((data)=>{
-      this.cartItemData = data;
 
-      let price = 0;
-      data.forEach((item:any) => {
-        if(item.menuquantity){
-          price  += (+item.menuprice * +item.menuquantity);
-        }
-      })
-      this.orderSummary.price = price;
-      this.orderSummary.gst = price/10;
-      this.orderSummary.total = price+(price/10);
-    })
-
+    this.loadDetails();
+// to get the user mobile no
     this.http.get("http://localhost:3000/RegisteredUsers").subscribe((users:any) => {
       users.forEach((item:any)=>{
       let user = localStorage.getItem('user');
@@ -51,10 +45,26 @@ export class CartComponent implements OnInit {
      });  
   }
 
-  toggleCase(){
-    this.checkoutStatus =! this.checkoutStatus;
-  }
+  loadDetails(){
+    this.menuservice.Cart().subscribe((data)=>{
+      this.cartItemData = data;
 
+      let price = 0;
+      this.CartData=data;
+      if(this.CartData==0){
+        this.status =! this.status;
+      }
+      data.forEach((item:any) => {
+        if(item.menuquantity){
+          price  += (+item.menuprice * +item.menuquantity);
+        }
+      })
+      this.orderSummary.price = price;
+      this.orderSummary.gst = price/10;
+      this.orderSummary.total = price+(price/10);
+    })
+  }
+  
   orderNow(data:any){
     let user = localStorage.getItem('user');
     let userEmail = user && JSON.parse(user).email;
@@ -66,11 +76,23 @@ export class CartComponent implements OnInit {
         Total_Amount: this.orderSummary.total,
         ...data,
       }
+      this.CartData.forEach((item:any)=>{
+        item.id && this.menuservice.deleteCartItem(item.id);
+      })
+
       this.menuservice.orderNow(orderDetails).subscribe((res)=>{
         if(res){
-          alert('Your order is placed');
+            alert(this.OrderMsg);
+            this.router.navigate(['/orders']);
         }
       })
     }
+  }
+
+  removeFromCart(cartid:number){
+    cartid && this.menuservice.romoveFromCart(cartid)
+        .subscribe((result) => {
+          this.loadDetails();
+        })
   }
 }

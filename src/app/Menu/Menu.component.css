@@ -74,11 +74,10 @@ a{
   width: 210px;
   color: var(--orange);
   text-align: justify;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 a:hover{
   cursor: pointer;
-  text-decoration: underline;
 }
 

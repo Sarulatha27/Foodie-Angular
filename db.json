@@ -246,48 +246,6 @@
       "menuimage": "assets/Images/menu-ice5.jpg"
     }
   ],
-  "Cart": [
-    {
-      "menuId": 3,
-      "menuname": "Chicken Chettinad Soup",
-      "menuprice": "110",
-      "menucategory": "Soup",
-      "menuimage": "assets/Images/menu-soup3.jpg",
-      "menuquantity": 1,
-      "userEmail": "sarulathadhavamani@gmail.com",
-      "id": 1
-    },
-    {
-      "menuId": 7,
-      "menuname": "Steamed Mixed Veg Momos [8 Pcs]",
-      "menuprice": "189",
-      "menucategory": "Momo",
-      "menuimage": "assets/Images/menu-momo3.jpg",
-      "menuquantity": 1,
-      "userEmail": "sarulathadhavamani@gmail.com",
-      "id": 2
-    },
-    {
-      "menuId": 1,
-      "menuname": "Vegetables Soup",
-      "menuprice": "75",
-      "menucategory": "Soup",
-      "menuimage": "assets/Images/menu-soup1.jpg",
-      "menuquantity": 1,
-      "userEmail": "tamil@gmail.com",
-      "id": 3
-    }
-  ],
-  "Orders": [
-    {
-      "Email_Id": "sarulathadhavamani@gmail.com",
-      "Mobile_No": "7708715475",
-      "Total_Amount": 328.9,
-      "Alternate_Mobile_No": 8925368626,
-      "Mode_of_Order": "Dine-In",
-      "Mode_of_Payment": "Cash",
-      "Pickup_Time": "13:12",
-      "id": 1
-    }
-  ]
+  "Cart": [],
+  "Orders": []
 }

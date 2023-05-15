@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.order-section {
+    padding:0 4%;
+    margin-top: 80px;
+    margin-bottom: 30px;
+}
+
+.emptycart{
+    margin: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.emptycart img{
+    width: 350px;
+    height: 360px;
+    display: flex;
+    margin-top: 15px;
+    justify-content: center;
+}
+.emptycart h2{
+    margin: 20px 0;
+    font-size: 30px;
+}
+.emptycart a{
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+}
+
+.container {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    width: 800px;
+    border-collapse: collapse;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+th {
+    padding: 15px 25px;
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    font-size: 16px;
+    font-weight: 900;
+    background-color: var(--black);
+    color: var(--yellow);
+    text-align: center;
+}
+
+td {
+    padding: 15px 25px;
+    font-size: 15px;
+    text-align: center;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: var(--black);
+    color: var(--white);
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    color: var(--black);
+    background-color: var(--yellow);
+}
+

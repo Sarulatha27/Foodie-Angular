@@ -27,24 +27,6 @@ export class MenuItemService {
   // to dynamically increse number of menu in cart in header cart(5)..
   cartDataItem = new EventEmitter<[]>;
 
- // Add to cart
-  AddToCartLocal(data:[]){
-    let cartData = [];
-    let localCart = localStorage.getItem('localCart');
-    // to add menu in local storage when it is not have anything
-    if(!localCart){
-      localStorage.setItem('localCart',JSON.stringify([data]));
-      this.cartDataItem.emit(data);
-    }
-    // to add menu in local storage along with the previsouly added menu when localcart already have menu
-    else{
-      cartData = JSON.parse(localCart);
-      cartData.push(data);
-      localStorage.setItem('localCart',JSON.stringify(cartData));
-      this.cartDataItem.emit(cartData);
-    }
-  }
-
   // to add menu in cart in db.json
   addToCartDB(menuData:any){
     return this.http.post('http://localhost:3000/Cart',menuData)
@@ -73,9 +55,26 @@ export class MenuItemService {
     return this.http.get<any>(`http://localhost:3000/Cart?userEmail=`+userData.email);
   }
 
+  // remove cart items when it is ordered
+  deleteCartItem(id:number){
+    return this.http.delete(`http://localhost:3000/Cart/`+id).subscribe((result)=>{
+      this.cartDataItem.emit([]);
+    })
+  }
+
   // Checkout page
   orderNow(data:any){
     return this.http.post('http://localhost:3000/Orders',data);
   }
-  
+  // My oredrs page
+  OrderList(){
+      let userStore = localStorage.getItem('user');
+      let userData = userStore && JSON.parse(userStore);
+      return this.http.get<any>(`http://localhost:3000/Orders?Email_Id=`+userData.email);
+  }
+
+  // To Cancel the order
+  cancelOrder(id:number){
+    return this.http.delete(`http://localhost:3000/Orders/`+id)
+  }
 }
