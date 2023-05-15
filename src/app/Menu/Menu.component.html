@@ -2,11 +2,20 @@
   <div class="section-heading">
     <h1>Our Menu</h1>
   </div>
-  <div class="search">
-    <input type="search" placeholder="search menu by name..." [(ngModel)]="search" />
+  <div class="center">
+    <div class="category">
+     <button (click)="filter('')">All</button>
+     <button (click)="filter('Soup')">Soups</button>
+     <button (click)="filter('Momo')">Momos</button>
+     <button (click)="filter('French Fries')">FrenchFries</button>
+     <button (click)="filter('Pizza')">Pizza</button>
+     <button (click)="filter('Burger')">Burgers</button>
+     <button (click)="filter('Sandwich')">Sandwiches</button>
+     <button (click)="filter('Ice Cream')">Ice Creams</button>
+    </div>
   </div>
   <ul>
-      <li *ngFor="let menu of menuList | filter : search">
+      <li *ngFor="let menu of filterCategory">
         <img src="{{ menu.menuimage }}" alt="" />
         <div class="content">
            <a routerLink="/menu/{{menu.id}}"> {{ menu.menuname }}</a>

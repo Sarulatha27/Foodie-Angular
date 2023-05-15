@@ -5,11 +5,28 @@
   padding: 0 1%;
 }
 
-.search{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 0;
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category{
+  margin: 15px 0;
+}
+
+.category button{
+  background-color: var(--yellow);
+  border: none;
+  border-radius: 4px;
+  margin: 0 5px;
+  padding: 7px;
+  font-size: 15px;
+}
+
+.category button:hover{
+  background-color: var(--black);
+  color:var(--white);
 }
 
 input{
@@ -57,9 +74,11 @@ a{
   width: 210px;
   color: var(--orange);
   text-align: justify;
+  text-decoration: none;
 }
 
 a:hover{
   cursor: pointer;
   text-decoration: underline;
 }
+

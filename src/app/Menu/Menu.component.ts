@@ -9,7 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
   menuList: any;
-  search: any;
+
+  filterCategory:any;
 
   constructor(private menu: MenuItemService) { }
 
@@ -17,8 +18,17 @@ export class MenuComponent implements OnInit {
     this.menu.menuList().subscribe((data) => {
       if (data) {
         this.menuList = data;
+        this.filterCategory = data;
       }
     })
+  }
+
+  filter(category:any){
+    this.filterCategory = this.menuList.filter((a:any)=>{
+      if(a.menucategory == category || category == ''){
+        return a;
+      }
+    });
   }
 
 }
