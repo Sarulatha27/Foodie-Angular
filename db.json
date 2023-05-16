@@ -248,11 +248,11 @@
   ],
   "Cart": [
     {
-      "menuId": 23,
-      "menuname": "Chocolate Ice Cream",
-      "menuprice": "112",
-      "menucategory": "Ice Cream",
-      "menuimage": "assets/Images/menu-ice2.jpg",
+      "menuId": 16,
+      "menuname": "Mushroom Cheese Burger",
+      "menuprice": "215",
+      "menucategory": "Burger",
+      "menuimage": "assets/Images/menu-burger3.jpg",
       "menuquantity": 3,
       "userEmail": "sarulathadhavamani@gmail.com",
       "id": 1

@@ -27,6 +27,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+
     // to change nav bar in header
     if (localStorage.getItem('user')) {
       let userStore = localStorage.getItem('user');
