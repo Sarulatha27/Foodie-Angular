@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItemService } from '../MenuItem.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-Menu',
@@ -12,7 +12,7 @@ export class MenuComponent implements OnInit {
 
   filterCategory:any;
 
-  constructor(private menu: MenuItemService) { }
+  constructor(private menu: MenuItemService,private router:Router) { }
 
   ngOnInit() {
     this.menu.menuList().subscribe((data) => {
@@ -30,5 +30,4 @@ export class MenuComponent implements OnInit {
       }
     });
   }
-
 }

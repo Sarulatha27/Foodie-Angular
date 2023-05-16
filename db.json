@@ -246,6 +246,17 @@
       "menuimage": "assets/Images/menu-ice5.jpg"
     }
   ],
-  "Cart": [],
+  "Cart": [
+    {
+      "menuId": 23,
+      "menuname": "Chocolate Ice Cream",
+      "menuprice": "112",
+      "menucategory": "Ice Cream",
+      "menuimage": "assets/Images/menu-ice2.jpg",
+      "menuquantity": 3,
+      "userEmail": "sarulathadhavamani@gmail.com",
+      "id": 1
+    }
+  ],
   "Orders": []
 }
