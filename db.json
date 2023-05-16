@@ -246,17 +246,6 @@
       "menuimage": "assets/Images/menu-ice5.jpg"
     }
   ],
-  "Cart": [
-    {
-      "menuId": 16,
-      "menuname": "Mushroom Cheese Burger",
-      "menuprice": "215",
-      "menucategory": "Burger",
-      "menuimage": "assets/Images/menu-burger3.jpg",
-      "menuquantity": 3,
-      "userEmail": "sarulathadhavamani@gmail.com",
-      "id": 1
-    }
-  ],
+  "Cart": [],
   "Orders": []
 }

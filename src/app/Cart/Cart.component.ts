@@ -93,6 +93,7 @@ export class CartComponent implements OnInit {
     cartid && this.menuservice.romoveFromCart(cartid)
         .subscribe((result) => {
           this.loadDetails();
+          window.location.reload();
         })
   }
 }

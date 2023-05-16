@@ -16,11 +16,7 @@ export class HeaderComponent implements OnInit {
   cartItems=0;
 
   constructor(public router: Router, private menu: MenuItemService) {
-  // to change the number of menu present in cart in header
-    let cartData = localStorage.getItem('localCart');
-    if(cartData){
-      this.cartItems = JSON.parse(cartData).length;
-    }
+    // to display menu item length in header
     this.menu.cartDataItem.subscribe((items:any)=>{
       this.cartItems = items.length;
     })
