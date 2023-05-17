@@ -66,11 +66,16 @@ export class MenuItemService {
   orderNow(data:any){
     return this.http.post('http://localhost:3000/Orders',data);
   }
+
   // My oredrs page
   OrderList(){
       let userStore = localStorage.getItem('user');
       let userData = userStore && JSON.parse(userStore);
       return this.http.get<any>(`http://localhost:3000/Orders?Email_Id=`+userData.email);
+  }
+
+  getOrdersId(id:String){
+    return this.http.get(`http://localhost:3000/Orders/${id}`);
   }
 
   // To Cancel the order
