@@ -1,13 +1,22 @@
 <pre>
 
 
-
-  <p>
-    OrderDetailed works!
-  </p>
-
-  
-
-
   {{orderData|json}}
 </pre>
+<section class="orderdetail-section">
+ <h1>{{orderData.id}}</h1>
+ <h1>{{orderData.Email_Id}}</h1>
+ <h1>{{orderData.Mobile_No}}</h1>
+ <h1>{{orderData.Alternate_Mobile_No}}</h1>
+ <h1>{{orderData.Total_Amount |currency:'INR'}}</h1>
+ <h1>{{orderData.Mode_of_Order}}</h1>
+ <h1>{{orderData.Mode_of_Payment}}</h1>
+ <h1>{{orderData.Pickup_Time}}</h1>
+ <div *ngFor="let item of orderData.Menu_Details">
+  <img src="{{item.menuimage}}" alt="">
+  <h4>{{item.menuname}}</h4>
+  <h4>{{item.menuquantity}}</h4>
+ </div>
+ 
+</section>
+
