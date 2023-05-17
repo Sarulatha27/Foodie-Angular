@@ -15,6 +15,7 @@ import { OrdersComponent } from './Orders/Orders.component';
 import { RegisterComponent } from './Register/Register.component';
 import { MenuDetailedComponent } from './MenuDetailed/MenuDetailed.component';
 import { AdminProfileComponent } from './AdminProfile/AdminProfile.component';
+import { OrderDetailedComponent } from './OrderDetailed/OrderDetailed.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,10 @@ const routes: Routes = [
   {
     path: 'orders',
     component: OrdersComponent
+  },
+  {
+    path: 'orders/:check',
+    component: OrderDetailedComponent
   },
   {
     path: 'admin',

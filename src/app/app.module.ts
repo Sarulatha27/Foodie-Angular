@@ -29,9 +29,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MenuDetailedComponent } from './MenuDetailed/MenuDetailed.component';
 import { AdminProfileComponent } from './AdminProfile/AdminProfile.component';
+import { OrderDetailedComponent } from './OrderDetailed/OrderDetailed.component';
 
 @NgModule({
-  declarations: [			
+  declarations: [				
     AppComponent,
     HeaderComponent,
     FooterComponent,
@@ -52,7 +53,8 @@ import { AdminProfileComponent } from './AdminProfile/AdminProfile.component';
     HeaderComponent,
     FooterComponent,
     MenuDetailedComponent,
-    AdminProfileComponent
+    OrderDetailedComponent,
+    AdminProfileComponent,
    ],
   imports: [
     BrowserModule,

@@ -247,5 +247,28 @@
     }
   ],
   "Cart": [],
-  "Orders": []
+  "Orders": [
+    {
+      "Email_Id": "sarulathadhavamani@gmail.com",
+      "Mobile_No": "7708715475",
+      "Total_Amount": 165,
+      "Alternate_Mobile_No": "",
+      "Mode_of_Order": "",
+      "Mode_of_Payment": "",
+      "Pickup_Time": "",
+      "Menu_Details": [
+        {
+          "menuId": 1,
+          "menuname": "Vegetables Soup",
+          "menuprice": "75",
+          "menucategory": "Soup",
+          "menuimage": "assets/Images/menu-soup1.jpg",
+          "menuquantity": 2,
+          "userEmail": "sarulathadhavamani@gmail.com",
+          "id": 1
+        }
+      ],
+      "id": 1
+    }
+  ]
 }

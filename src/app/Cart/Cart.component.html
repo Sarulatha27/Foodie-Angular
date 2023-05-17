@@ -23,7 +23,7 @@
           <th>Action</th>
         </thead>
         <tbody>
-          <tr *ngFor="let cart of cartItemData">
+          <tr *ngFor="let cart of CartData">
             <td><img src="{{ cart.menuimage }}" alt="" /></td>
             <td>{{ cart.menuname }}</td>
             <td>{{ cart.menuprice | currency : "INR" }}</td>

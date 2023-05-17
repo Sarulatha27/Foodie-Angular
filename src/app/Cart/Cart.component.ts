@@ -11,8 +11,6 @@ import { Router } from '@angular/router';
 })
 export class CartComponent implements OnInit {
 
-  cartItemData:any;
-
   orderSummary:any={
     price:0,
     gst:0,
@@ -47,7 +45,6 @@ export class CartComponent implements OnInit {
 
   loadDetails(){
     this.menuservice.Cart().subscribe((data)=>{
-      this.cartItemData = data;
 
       let price = 0;
       this.CartData=data;
@@ -75,6 +72,7 @@ export class CartComponent implements OnInit {
         Mobile_No: this.MobileNo,
         Total_Amount: this.orderSummary.total,
         ...data,
+        Menu_Details: this.CartData
       }
       this.CartData.forEach((item:any)=>{
         item.id && this.menuservice.deleteCartItem(item.id);
