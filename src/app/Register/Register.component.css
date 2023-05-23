@@ -1,29 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 section {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     width: 100%;
-    background-color: var(--yellow);
+    min-height: 95vh;
+    margin-top: 10px;
 }
 
 .form-box {
-    padding: 20px;
+    padding: 7px 20px;
     position: relative;
-    width: 430px;
-    background-color: var(--white);
+    width: 400px;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 h3 {
     text-align: center;
     letter-spacing: 2px;
-    font-size: 30px;
+    font-size: 25px;
     font-family: 'Dancing Script', cursive;
-    padding-bottom: 10px;
 }
 
 span {
@@ -40,7 +44,6 @@ h2 {
 
 .inputbox {
     position: relative;
-    margin: 5px 0;
     width: 310px;
 }
 
@@ -51,7 +54,7 @@ h2 {
     border: none;
     border-bottom: 2px solid var(--yellow);
     font-size: 16px;
-    padding: 0 35px 0 5px;
+    padding: 0;
     outline: none;
 }
 
@@ -76,21 +79,7 @@ input::placeholder {
 
 .error {
     color: red;
-    font-size: 15px;
-}
-
-.forgot {
-    padding-top: 30px;
-    margin: -15px 0 15px;
-    font-size: 16px;
-}
-
-.forgot a {
-    color: var(--orange);
-}
-
-.forgot a:hover {
-    text-decoration: underline;
+    font-size: 12px;
 }
 
 button {
@@ -104,7 +93,7 @@ button {
     cursor: pointer;
     font-size: 16px;
     font-weight: 600;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 button:hover {
@@ -116,7 +105,7 @@ button:hover {
     font-size: 16px;
     color: var(--orange);
     text-align: center;
-    margin: 25px 0 10px;
+    margin: 20px 0 5px;
 }
 
 .login p a {

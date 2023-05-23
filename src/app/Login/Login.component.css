@@ -2,20 +2,19 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 95vh;
     width: 100%;
-    background-color: var(--yellow);
 }
 
 .form-box {
     padding: 20px;
     position: relative;
-    width: 430px;
-    background-color: var(--white);
+    width: 400px;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 h3 {
@@ -77,7 +76,7 @@ input::placeholder {
 
 small {
     color: red;
-    font-size: 15px;
+    font-size: 12px;
 }
 
 .forgot {
