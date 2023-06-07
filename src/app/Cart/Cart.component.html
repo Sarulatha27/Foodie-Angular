@@ -4,12 +4,14 @@
   </div>
 
   <div *ngIf="status" class="emptycart">
-      <div>
-        <a><img src="assets/Images/Cart.png" alt=""></a>
-        <h2>Your Shopping Cart Is Empty </h2>
-        <a><p>Add menus to it now.</p></a>
-        <a routerLink="/menu"><button>Explore Menu</button></a>
-      </div>
+    <div>
+      <a><img src="assets/Images/Cart.png" alt /></a>
+      <h2>Your Shopping Cart Is Empty</h2>
+      <a>
+        <p>Add menus to it now.</p>
+      </a>
+      <a routerLink="/menu"><button>Explore Menu</button></a>
+    </div>
   </div>
 
   <div class="container" *ngIf="!status">
@@ -24,7 +26,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let cart of CartData">
-            <td><img src="{{ cart.menuimage }}" alt="" /></td>
+            <td><img src="{{ cart.menuimage }}" alt /></td>
             <td>{{ cart.menuname }}</td>
             <td>{{ cart.menuprice | currency : "INR" }}</td>
             <td>{{ cart.menuquantity }}</td>
@@ -35,39 +37,32 @@
     </div>
     <div class="summary">
       <h1>Order Summary</h1>
-      <form
-        #orderDetails="ngForm"
-        (ngSubmit)="orderNow(orderDetails.value)"
-      >
-      <tr>
-        <td>Amount :</td>
-        <td>{{ orderSummary.price | currency : "INR" }}</td>
-      </tr>
-      <tr>
-        <td>GST :</td>
-        <td>{{ orderSummary.gst | currency : "INR" }}</td>
-      </tr>
-      <tr class="total">
-        <td>Total Amount :</td>
-        <td>{{ orderSummary.total | currency : "INR" }}</td>
-      </tr>
-      <tr>
-        <td>Alternate Mobile No</td>
-        <td><input type="number" name="Alternate_Mobile_No" ngModel required></td>
-      </tr>
+      <form #orderDetails="ngForm" (ngSubmit)="orderNow(orderDetails.value)">
         <tr>
-          <td>Mode of Order</td>
+          <td>Amount :</td>
+          <td>{{ orderSummary.price | currency : "INR" }}</td>
+        </tr>
+        <tr>
+          <td>GST :</td>
+          <td>{{ orderSummary.gst | currency : "INR" }}</td>
+        </tr>
+        <tr class="total">
+          <td>Total Amount :</td>
+          <td>{{ orderSummary.total | currency : "INR" }}</td>
+        </tr>
+        <tr>
+          <td>Mode of Order<span *ngIf="order.invalid">*</span></td>
           <td>
-            <select name="Mode_of_Order" ngModel required>
+            <select name="Mode_of_Order" ngModel #order="ngModel" required>
               <option value="Dine-In">Dine-In</option>
               <option value="Take Out">Take Out</option>
             </select>
           </td>
         </tr>
         <tr>
-          <td>Mode of Payment</td>
+          <td>Mode of Payment<span *ngIf="payment.invalid">*</span></td>
           <td>
-            <select name="Mode_of_Payment" ngModel required>
+            <select name="Mode_of_Payment" ngModel #payment="ngModel" required>
               <option value="Cash">Cash</option>
               <option value="Card">Card</option>
               <option value="UPI">UPI</option>
@@ -75,20 +70,13 @@
           </td>
         </tr>
         <tr>
-          <td>Pickup Time</td>
+          <td>Pickup Time<span *ngIf="time.invalid">*</span></td>
           <td>
-            <input
-              name="Pickup_Time"
-              type="time"
-              min="16:00:00"
-              max="22:00:00"
-              ngModel
-              required
-            />
+            <input name="Pickup_Time" type="time" ngModel #time="ngModel" min="16:00" max="22:00" required/>
           </td>
         </tr>
         <div class="button">
-          <button>Order Now</button>
+          <button [disabled]="orderDetails.form.invalid">Order Now</button>
         </div>
       </form>
     </div>

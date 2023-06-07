@@ -25,6 +25,7 @@ table {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
     text-align: left;
     overflow: hidden;
+    margin: 0;
     border-radius: 4px;
 }
 
@@ -32,8 +33,9 @@ th {
     padding: 16px 32px;
     text-transform: uppercase;
     letter-spacing: 1.6px;
+    text-align: center;
     font-size: 16px;
-    font-weight: 900;
+    font-weight: 600;
     background-color: var(--black);
     color: var(--yellow);
 }
@@ -41,6 +43,7 @@ th {
 td {
     padding: 16px 32px;
     font-size: 15px;
+    text-align: center;
 }
 
 tr:hover td {

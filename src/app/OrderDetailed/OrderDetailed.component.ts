@@ -20,5 +20,4 @@ export class OrderDetailedComponent implements OnInit {
       this.orderData = res;
     })
   }
-
 }

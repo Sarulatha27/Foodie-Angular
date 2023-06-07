@@ -1,22 +1,39 @@
-<pre>
-
-
-  
-</pre>
-<section class="orderdetail-section">
- <h1>{{orderData.id}}</h1>
- <h1>{{orderData.Email_Id}}</h1>
- <h1>{{orderData.Mobile_No}}</h1>
- <h1>{{orderData.Alternate_Mobile_No}}</h1>
- <h1>{{orderData.Total_Amount |currency:'INR'}}</h1>
- <h1>{{orderData.Mode_of_Order}}</h1>
- <h1>{{orderData.Mode_of_Payment}}</h1>
- <h1>{{orderData.Pickup_Time}}</h1>
- <div *ngFor="let item of orderData.Menu_Details">
-  <img src="{{item.menuimage}}" alt="">
-  <h4>{{item.menuname}}</h4>
-  <h4>{{item.menuquantity}}</h4>
- </div>
- 
+<section>
+    <div class="container">
+        <table>
+            <tr>
+                <th>Order Id</th>
+                <th>Email Id</th>
+                <th>Mobile No</th>
+                <th>Total Amount</th>
+                <th>Mode of Order</th>
+                <th>Mode of Payment</th>
+                <th>Pickup Time</th>
+            </tr>
+            <tr>
+                <td>{{orderData.id}}</td>
+                <td>{{orderData.Email_Id}}</td>
+                <td>{{orderData.Mobile_No}}</td>
+                <td>{{orderData.Total_Amount |currency:'INR'}}</td>
+                <td>{{orderData.Mode_of_Order}}</td>
+                <td>{{orderData.Mode_of_Payment}}</td>
+                <td>{{orderData.Pickup_Time}}</td>
+                
+            </tr>
+        </table>
+        <div class="table-2">
+            <table class="menu-items">
+                <tr>
+                    <th>Menu Image</th>
+                    <th>Menu Name</th>
+                    <th>Menu Quantity</th>
+                </tr>
+                <tr *ngFor="let item of orderData.Menu_Details" >
+                    <td><img src="{{item.menuimage}}"></td>
+                    <td>{{item.menuname}}</td>
+                    <td>{{item.menuquantity}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </section>
-

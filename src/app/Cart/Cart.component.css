@@ -42,7 +42,7 @@
 }
 
 table {
-    width: 800px;
+    width: 780px;
     border-collapse: collapse;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
     overflow: hidden;
@@ -90,8 +90,8 @@ button:hover {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
     overflow: hidden;
     border-radius: 4px;
-    height: 460px;
-    width: 305px;
+    height: auto;
+    width: 312px;
 }
 
 .summary h1 {
@@ -129,4 +129,8 @@ button:hover {
 select,input[type='number']{
     width: 105px;
     height: 25px;
+}
+
+span{
+    color: red;
 }
