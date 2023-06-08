@@ -7,9 +7,7 @@
       "mobile": "7708715475",
       "password": "Saru@7708",
       "role": "Admin",
-      "address": "18/7 Thiyagi Nadesan Street No 2, Ammapet",
       "city": "Salem - India",
-      "pincode": "636003",
       "id": 1
     }
   ],
@@ -247,5 +245,27 @@
     }
   ],
   "Cart": [],
-  "Orders": []
+  "Orders": [
+    {
+      "Email_Id": "sarulathadhavamani@gmail.com",
+      "Mobile_No": "7708715475",
+      "Total_Amount": 412.5,
+      "Mode_of_Order": "Dine-In",
+      "Mode_of_Payment": "Card",
+      "Pickup_Time": "17:01",
+      "Menu_Details": [
+        {
+          "menuId": 20,
+          "menuname": "Paneer Mayonnaise Grilled Sandwich [2 Slices]",
+          "menuprice": "125",
+          "menucategory": "Sandwich",
+          "menuimage": "assets/Images/menu-sand3.jpg",
+          "menuquantity": 3,
+          "userEmail": "sarulathadhavamani@gmail.com",
+          "id": 1
+        }
+      ],
+      "id": 1
+    }
+  ]
 }

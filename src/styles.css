@@ -18,6 +18,10 @@
     list-style-type: none;
 }
 
+*::selection{
+    background-color: var(--yellow);
+    color: var(--black);
+}
 /* scroll bar */
 ::-webkit-scrollbar {
     width: 10px;
