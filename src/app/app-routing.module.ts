@@ -18,7 +18,7 @@ import { AdminProfileComponent } from './AdminProfile/AdminProfile.component';
 import { OrderDetailedComponent } from './OrderDetailed/OrderDetailed.component';
 import { AdminAuthGuard } from './admin-auth.guard';
 import { UserAuthGuard } from './user-auth.guard';
-import { CheckoutComponent } from './checkout/checkout.component';
+import { CheckoutComponent } from './Checkout/Checkout.component';
 
 const routes: Routes = [
   {
