@@ -1,4 +1,7 @@
 <section class="home">
+    <div class="scrollToTop" *ngIf="isScrollActive" (click)="scrollToTop()"><i
+        class="fa-solid fa-arrow-up scrollBtn"></i></div>
+        
     <div class="text-area">
         <h3>Food Ordering & Restaurant Management System</h3>
         <h1>Order Your Favourite Food</h1>
@@ -44,6 +47,11 @@
     </div>
 </section>
 <!-- Header section starts -->
+
+<section class="popup" *ngIf="status">
+    10% offer on Soups
+    <button (click)="ClosePopUp()">❌</button>
+</section>
 
 <!-- Counter section starts -->
 <section class="counter-section">

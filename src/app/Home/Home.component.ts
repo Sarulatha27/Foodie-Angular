@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-Home',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./Home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  status:boolean = false;
 
   customerCount: number = 0;
   foodCount: number = 0;
@@ -43,6 +45,24 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  setTimeout(() =>this.status = ! this.status, 3000);
   }
 
+  ClosePopUp(){
+    this.status = false;
+  }
+
+  isScrollActive = false;
+
+  @HostListener('window:scroll')
+  onWindowScroll() {
+    this.isScrollActive = window.pageYOffset > 100;
+  }
+
+  scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
 }

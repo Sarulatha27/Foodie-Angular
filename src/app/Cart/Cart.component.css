@@ -28,6 +28,7 @@
     margin: 20px 0;
     font-size: 30px;
 }
+
 .emptycart a{
     display: flex;
     text-decoration: none;
@@ -86,11 +87,16 @@ button:hover {
     background-color: var(--yellow);
 }
 
+button:disabled{
+    background-color: darkgray;
+    color: var(--black);
+}
+
 .summary {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
     overflow: hidden;
     border-radius: 4px;
-    height: auto;
+    height: 400px;
     width: 312px;
 }
 
@@ -133,4 +139,10 @@ select,input[type='number']{
 
 span{
     color: red;
+}
+
+.Empty{
+    margin-top: 10px;
+    position: absolute;
+    right: 480px;
 }

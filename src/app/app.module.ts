@@ -30,6 +30,8 @@ import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MenuDetailedComponent } from './MenuDetailed/MenuDetailed.component';
 import { AdminProfileComponent } from './AdminProfile/AdminProfile.component';
 import { OrderDetailedComponent } from './OrderDetailed/OrderDetailed.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+
 
 @NgModule({
   declarations: [				
@@ -55,6 +57,7 @@ import { OrderDetailedComponent } from './OrderDetailed/OrderDetailed.component'
     MenuDetailedComponent,
     OrderDetailedComponent,
     AdminProfileComponent,
+    CheckoutComponent
    ],
   imports: [
     BrowserModule,

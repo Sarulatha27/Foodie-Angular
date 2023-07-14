@@ -1,0 +1,103 @@
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+h3 {
+    font-size: 40px;
+    font-family: 'Dancing Script', cursive;
+    color: var(--orange);
+}
+.emptyorder img{
+    position: relative;
+    margin-top: 30px;
+    left: 325px;
+}
+.emptyorder h2{
+    position: relative;
+    margin-top: 20px;
+    left: 425px;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 30px;
+}
+
+.flex-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.flex-box {
+    width: 330px;
+    height: auto;
+    padding: 15px;
+    word-break: break-all;
+    color: var(--white);
+    background-color: var(--black);
+    font-size: 15px;
+    border-radius: 6px;
+}
+
+.content {
+    padding-bottom: 3px;
+}
+
+small {
+    color: var(--yellow);
+    font-size: 14px;
+    margin-right: 7px;
+}
+
+table th{
+    font-size: 13px;
+    color: var(--orange);
+    padding: 10px;
+    text-align: left;
+}
+
+td{
+    padding: 3px 5px;
+    text-align: justify;
+    font-size: 13px;
+}
+
+.qty{
+    min-width: 50px;
+    text-align: center;
+}
+
+button{
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 7px 10px;
+    margin: 2px;
+    color: var(--white);
+    font-size: 15px;
+    font-family: 600;
+    transition: all .5s ease;
+}
+.submit{
+    background-color: green;
+}
+.edit{
+    background-color: var(--orange);
+}
+.submit:hover {
+    background-color: #079407;
+}
+
+.edit:hover{
+    background-color: rgb(235, 92, 41);
+}

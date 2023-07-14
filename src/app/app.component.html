@@ -1,23 +1,25 @@
 <app-Header *ngIf="
-    router.url !== '/login' &&
-    router.url !== '/register' &&
-    router.url !== '/admin' &&
-    router.url !== '/admin/orderDetails' &&
-    router.url !== '/admin/menuedit' &&
-    router.url !== '/admin/editmenu' &&
-    router.url !== '/admin/customerDetails' &&
-    router.url !== '/admin/queries' &&
-    router.url !== '/admin/adminProfile'
+    router.url == '/' ||
+    router.url == '/home' ||
+    router.url === '/about' ||
+    router.url == '/menu' ||
+    router.url == '/menu/:check' ||
+    router.url == '/cart' ||
+    router.url == '/contact' ||
+    router.url == '/cart' ||
+    router.url == '/checkout' ||
+    router.url == '/orders' 
   "></app-Header>
 <router-outlet></router-outlet>
 <app-Footer *ngIf="
-    router.url !== '/login' &&
-    router.url !== '/register' &&
-    router.url !== '/admin' &&
-    router.url !== '/admin/orderDetails' &&
-    router.url !== '/admin/menuedit' &&
-    router.url !== '/admin/editmenu' &&
-    router.url !== '/admin/customerDetails' &&
-    router.url !== '/admin/queries' &&
-    router.url !== '/admin/adminProfile'
+router.url == '/' ||
+router.url == '/home' ||
+router.url === '/about' ||
+router.url == '/menu' ||
+router.url == '/menu/:check' ||
+router.url == '/cart' ||
+router.url == '/contact' ||
+router.url == '/cart' ||
+router.url == '/checkout' ||
+router.url == '/orders'  
   "></app-Footer>

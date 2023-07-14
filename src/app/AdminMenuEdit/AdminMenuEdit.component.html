@@ -5,39 +5,39 @@
   <form autocomplete="off" [formGroup]="editMenuForm">
 
     <div>
-      <div [ngClass]="{'has-error': isSubmitted && fc.menuname.errors}">
+      <div [ngClass]="{'has-error': fc.menuname.errors}">
         <div>
           <label for="">Menu Name</label>
           <input type="text" class="form-control" id="menuname" formControlName="menuname">
         </div>
-        <span *ngIf="isSubmitted && fc.menuname.errors">name is required</span>
+        <span *ngIf="fc.menuname.errors">name is required</span>
       </div>
 
-      <div [ngClass]="{'has-error': isSubmitted && fc.menucategory.errors}">
+      <div [ngClass]="{'has-error': fc.menucategory.errors}">
         <div>
           <label for="">Menu Category</label>
           <select formControlName="menucategory">
             <option *ngFor="let category of menucategory" [value]="category">{{category}}</option>
           </select>
         </div>
-        <span *ngIf="isSubmitted && fc.menucategory.errors">category is required</span>
+        <span *ngIf="fc.menucategory.errors">category is required</span>
       </div>
     </div>
 
     <div>
-      <div [ngClass]="{'has-error': isSubmitted && fc.menuprice.errors}">
+      <div [ngClass]="{'has-error': fc.menuprice.errors}">
         <div>
           <label for="">Menu Price</label>
           <input type="text" class="form-control" id="menuprice" formControlName="menuprice">
         </div>
-        <span *ngIf="isSubmitted && fc.menuprice.errors">price is required</span>
+        <span *ngIf="fc.menuprice.errors">price is required</span>
       </div>
-      <div [ngClass]="{'has-error': isSubmitted && fc.menuimage.errors}">
+      <div [ngClass]="{'has-error': fc.menuimage.errors}">
         <div>
           <label for="">Menu Image URL</label>
           <input type="text" class="form-control" id="menuimage" formControlName="menuimage">
         </div>
-        <span *ngIf="isSubmitted && fc.menuimage.errors">image url is required</span>
+        <span *ngIf="fc.menuimage.errors">image url is required</span>
       </div>
     </div>
   </form>

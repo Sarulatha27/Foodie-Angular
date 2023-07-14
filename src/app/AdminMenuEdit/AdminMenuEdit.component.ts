@@ -12,7 +12,6 @@ export class AdminMenuEditComponent implements OnInit {
 
   url = "http://localhost:3000/MenuItems";
   editMenuForm: any;
-  isSubmitted = false;
   MenuList: any;
   status: boolean = false;
   menucategory: string[] = [
@@ -55,7 +54,6 @@ export class AdminMenuEditComponent implements OnInit {
   get fc() { return this.editMenuForm.controls; }
 
   save() {
-    this.isSubmitted = true;
     if (this.editMenuForm.invalid) {
       return;
     }
@@ -78,7 +76,6 @@ export class AdminMenuEditComponent implements OnInit {
 
   reset() {
     this.editMenuForm.reset();
-    this.isSubmitted = false;
 
     this.getAll();
   }

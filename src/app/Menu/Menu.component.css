@@ -72,6 +72,7 @@ li img {
 a{
   font-size: 16px;
   width: 210px;
+  height: 100px;
   color: var(--orange);
   text-align: justify;
   text-decoration: underline;
@@ -81,3 +82,41 @@ a:hover{
   cursor: pointer;
 }
 
+.discount{
+  text-decoration: line-through;
+  text-decoration-color: var(--orange);
+}
+
+.add{
+  padding: 10px;
+  font-size: 16px;
+  background-color: var(--yellow);
+  color: var(--black);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  bottom: 180px;
+  left:0px;
+  width: 50px;
+  border-top-right-radius: 16px;
+  display: none;
+}
+
+.add:hover,.wish:hover{
+  background-color: var(--orange);
+}
+
+.wish{
+  position: relative;
+  bottom: 220px;
+  left:250px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 16px;
+  display: none;
+}
+
+li:hover button{
+  display: block;
+  transition: all .3s;
+}

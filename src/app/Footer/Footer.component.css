@@ -51,6 +51,17 @@ footer {
     transition: all 0.3s ease-in-out;
 }
 
+footer .contact-info p {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: var(--yellow);
+}
+
+footer .contact-info p i {
+    margin-right: 5px;
+    color: var(--orange);
+}
+
 .footer-top .flex-col .social-links li a:hover {
     color: var(--black);
     background-color: var(--yellow);
@@ -92,7 +103,20 @@ footer {
     padding: 0;
 }
 
-.footer-top .flex-col a:hover {
+.footer-top .flex-col .control a:hover {
+    color: var(--white);
+}
+
+.footer-top .flex-col .control a::before {
+    content: '\f105';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    padding-right: 5px;
+}
+
+.footer-top .flex-col .control a:hover::before {
+    content: '\f101';
+    font-weight: 900;
     color: var(--white);
 }
 
@@ -107,4 +131,26 @@ footer {
 }
 a:hover{
     cursor: pointer;
+}
+
+.back-to-top {
+    position: fixed;
+    display: none;
+    background: #FF6F61;
+    color: #ffffff;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 1;
+    font-size: 16px;
+    border-radius: 4px;
+    right: 15px;
+    bottom: 15px;
+    transition: background 0.5s;
+    z-index: 11;
+}
+
+.back-to-top i {
+    padding-top: 12px;
+    color: #ffffff;
 }

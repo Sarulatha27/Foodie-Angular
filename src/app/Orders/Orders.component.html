@@ -5,26 +5,27 @@
     <div *ngIf="status" class="emptycart">
       <div>
         <a><img src="assets/Images/Order.png" alt=""></a>
-        <h2>Sorry, No Orders Found</h2>
+        <a><h2>Sorry, No Orders Found</h2></a>
         <a><p>Order Now.</p></a>
-        <a routerLink="/menu"><button>Explore Menu</button></a>
+        <a><p>If there is no order,this page will automatically redirected</p></a>
       </div>
     </div>
     <div class="container" *ngIf="!status">
       <table class="cart-details">
         <thead>
           <th>Order Id</th>
+          <th>Date & Time</th>
           <th>Price</th>
           <th>Status</th>
           <th>Action</th>
         </thead>
         <tbody>
           <tr *ngFor="let order of orderDetails">
-            <td>#{{ order.id }}</td>
+            <td>{{ order.id }}</td>
+            <td>{{order.Order_Date | date: 'dd MMM yyyy hh:mm:ss'}}</td>
             <td>{{ order.Total_Amount | currency : "INR" }}</td>
-            <td>In Progress</td>
-            <td><a routerLink="/orders/{{order.id}}"><button>View Details</button></a>
-            <br><br><button (click)="cancelOrder(order.id)">Cancel Order</button></td>
+            <td>{{order.status}}</td>
+            <td><a routerLink="/orders/{{order.id}}"><button>View</button></a></td>
           </tr>
         </tbody>
       </table>

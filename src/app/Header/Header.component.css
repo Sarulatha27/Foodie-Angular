@@ -71,6 +71,11 @@ a:hover{
     cursor: pointer;
 }
 
+.username{
+    color: var(--orange);
+    position: relative;
+    top: 9px;
+}
 .active {
     border-top: 3px solid var(--white);
     padding-top: 5px;

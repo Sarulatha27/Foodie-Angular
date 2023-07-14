@@ -1,37 +1,49 @@
 <section>
-    <div class="container">
+    <div *ngIf="status" class="emptycart">
+      <div>
+        <a><img src="assets/Images/Order.png" alt=""></a>
+        <a><h2>Sorry, No Orders Found</h2></a>
+        <a><p>Order Now.</p></a>
+        <a><p>If there is no order,this page will automatically redirected</p></a>
+      </div>
+    </div>
+    <div class="container"  *ngIf="!status">
+        <button routerLink="/orders"><i class="fa-solid fa-arrow-left"></i></button>
         <table>
             <tr>
-                <th>Order Id</th>
                 <th>Email Id</th>
                 <th>Mobile No</th>
                 <th>Total Amount</th>
                 <th>Mode of Order</th>
                 <th>Mode of Payment</th>
                 <th>Pickup Time</th>
+                <th>Cancel</th>
             </tr>
             <tr>
-                <td>{{orderData.id}}</td>
                 <td>{{orderData.Email_Id}}</td>
                 <td>{{orderData.Mobile_No}}</td>
                 <td>{{orderData.Total_Amount |currency:'INR'}}</td>
                 <td>{{orderData.Mode_of_Order}}</td>
                 <td>{{orderData.Mode_of_Payment}}</td>
                 <td>{{orderData.Pickup_Time}}</td>
-                
+                <td><button (click)="cancelOrder(orderData.id)" *ngIf="orderData.status === 'Approved'"><i class="fas fa-trash"></i></button>
+                <p *ngIf="orderData.status !== 'Approved' && orderData.status !== 'Rejected'">Enabled once the order is accepted</p>
+                <p *ngIf="orderData.status === 'Rejected'">Sorry! your order has been rejected.We'll refund your money soon</p></td>
             </tr>
         </table>
-        <div class="table-2">
+        <div class="table-2"  *ngIf="!status">
             <table class="menu-items">
                 <tr>
                     <th>Menu Image</th>
                     <th>Menu Name</th>
                     <th>Menu Quantity</th>
+                    <th>Total Price</th>
                 </tr>
                 <tr *ngFor="let item of orderData.Menu_Details" >
                     <td><img src="{{item.menuimage}}"></td>
                     <td>{{item.menuname}}</td>
                     <td>{{item.menuquantity}}</td>
+                    <td>{{item.menuprice*item.menuquantity}}</td>
                 </tr>
             </table>
         </div>

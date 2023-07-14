@@ -27,6 +27,20 @@ export class MenuItemService {
   // to dynamically increse number of menu in cart in header cart(5)..
   cartDataItem = new EventEmitter<[]>;
 
+  localAddCart(data:any){
+    let cartData = [];
+    let localCart = localStorage.getItem('localCart');
+    if(!localCart){
+      localStorage.setItem('localCart',JSON.stringify([data]));
+    }
+    else{
+      cartData = JSON.parse(localCart);
+      cartData.push(data);
+      localStorage.setItem('localCart',JSON.stringify(cartData));
+      this.cartDataItem.emit(cartData);
+    }
+  }
+
   // to add menu in cart in db.json
   addToCartDB(menuData:any){
     return this.http.post('http://localhost:3000/Cart',menuData)
@@ -48,21 +62,21 @@ export class MenuItemService {
     return this.http.delete(`http://localhost:3000/Cart/`+id);
   }
 
-  // cart page
+  // to show cart items for a particular user
   Cart(){
     let userStore = localStorage.getItem('user');
     let userData = userStore && JSON.parse(userStore);
     return this.http.get<any>(`http://localhost:3000/Cart?userEmail=`+userData.email);
   }
 
-  // remove cart items when it is ordered
+  // automatically delete the cart items when it is ordered
   deleteCartItem(id:number){
     return this.http.delete(`http://localhost:3000/Cart/`+id).subscribe((result)=>{
       this.cartDataItem.emit([]);
     })
   }
 
-  // Checkout page
+  // to place the order
   orderNow(data:any){
     return this.http.post('http://localhost:3000/Orders',data);
   }
@@ -74,6 +88,7 @@ export class MenuItemService {
       return this.http.get<any>(`http://localhost:3000/Orders?Email_Id=`+userData.email);
   }
 
+  // detailed view of orders
   getOrdersId(id:String){
     return this.http.get(`http://localhost:3000/Orders/${id}`);
   }
@@ -81,5 +96,19 @@ export class MenuItemService {
   // To Cancel the order
   cancelOrder(id:number){
     return this.http.delete(`http://localhost:3000/Orders/`+id)
+  }
+
+
+  // Admin side to update order status
+  getOrderDetails(id:any){
+    return this.http.get(`http://localhost:3000/Orders/`+id);
+  }
+
+  updateOrderStatus(id:number,data:any){
+    return this.http.patch(`http://localhost:3000/Orders/`+id,data);
+  }
+
+  updateCartQty(id:number){
+    return this.http.get('http://localhost:3000/Cart/'+id);
   }
 }

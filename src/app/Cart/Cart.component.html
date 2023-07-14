@@ -7,10 +7,8 @@
     <div>
       <a><img src="assets/Images/Cart.png" alt /></a>
       <h2>Your Shopping Cart Is Empty</h2>
-      <a>
-        <p>Add menus to it now.</p>
-      </a>
-      <a routerLink="/menu"><button>Explore Menu</button></a>
+      <a><p>Add menus to it now.</p></a>
+      <a><p>If there is no items in cart,this page will automatically redirected</p></a>
     </div>
   </div>
 
@@ -22,24 +20,26 @@
           <th>Name</th>
           <th>Price</th>
           <th>Quantity</th>
-          <th>Action</th>
+          <th>Total</th>
+          <th>Remove</th>
         </thead>
         <tbody>
           <tr *ngFor="let cart of CartData">
             <td><img src="{{ cart.menuimage }}" alt /></td>
             <td>{{ cart.menuname }}</td>
             <td>{{ cart.menuprice | currency : "INR" }}</td>
-            <td>{{ cart.menuquantity }}</td>
-            <td><button (click)="removeFromCart(cart.id)">Remove</button></td>
+            <td><button (click)="handleQuantity(cart.id,'minus')">-</button> {{cart.menuquantity}} <button (click)="handleQuantity(cart.id,'plus')">+</button></td>
+            <td>{{cart.menuprice*cart.menuquantity| currency : "INR"}}</td>
+            <td><button (click)="removeFromCart(cart.id)"><i class="fa fa-trash"></i></button></td>
           </tr>
         </tbody>
       </table>
     </div>
     <div class="summary">
-      <h1>Order Summary</h1>
+      <h1>Cart Summary</h1>
       <form #orderDetails="ngForm" (ngSubmit)="orderNow(orderDetails.value)">
         <tr>
-          <td>Amount :</td>
+          <td>Sub Total :</td>
           <td>{{ orderSummary.price | currency : "INR" }}</td>
         </tr>
         <tr>
@@ -47,7 +47,7 @@
           <td>{{ orderSummary.gst | currency : "INR" }}</td>
         </tr>
         <tr class="total">
-          <td>Total Amount :</td>
+          <td>Grand Total :</td>
           <td>{{ orderSummary.total | currency : "INR" }}</td>
         </tr>
         <tr>
@@ -76,7 +76,7 @@
           </td>
         </tr>
         <div class="button">
-          <button [disabled]="orderDetails.form.invalid">Order Now</button>
+          <button [disabled]="orderDetails.form.invalid">Checkout</button>
         </div>
       </form>
     </div>

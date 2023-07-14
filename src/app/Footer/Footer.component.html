@@ -26,16 +26,12 @@
     </div>
 
     <div class="flex-col">
-      <h4 class="heading">Address</h4>
-
-      <p class="desc">
-        National Highways <br />
-        Salem, Ammapet
-      </p>
-      <p class="desc">
-        p: 6789567895 <br />
-        E: foodie@gmail.com
-      </p>
+      <h4 class="heading">Get in Touch</h4>
+      <div class="contact-info">
+        <p><i class="fa fa-map-marker"></i>Ammapet, Salem-3</p>
+        <p><i class="fa fa-envelope"></i>foodie.restaurant@gmail.com</p>
+        <p><i class="fa fa-phone"></i>+91 7708715475</p>
+      </div>
     </div>
 
     <div class="flex-col">
@@ -64,10 +60,10 @@
           <li><a routerLink="login">Login</a></li>
         </ul>
         <ul *ngSwitchCase="'user'">
-          <a routerLink="home">Home</a>
-          <a routerLink="about">About</a>
           <a routerLink="menu">Menu</a>
-          <a routerLink="contact">Contact</a>
+          <a routerLink="cart">Cart</a>
+          <a routerLink="checkout">Checkout</a>
+          <a routerLink="orders">Orders</a>
           <a (click)="userLogout()">Logout</a>
         </ul>
       </div>

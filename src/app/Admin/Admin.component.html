@@ -4,7 +4,7 @@
 
     <div class="profile-content"   *ngFor="let profile of adminProfile">
       <div class="profile-img">
-        <img src="{{profile.profileimage}}" alt="Admin Image" />
+        <a routerLink="adminProfile"><img src="{{profile.profileimage}}" alt="Admin Image" /></a>
       </div>
       <div class="profile-info">
         <div class="name">{{profile.name}}</div>
@@ -38,12 +38,6 @@
         </a>
       </li>
       <li>
-        <a routerLink="adminProfile" routerLinkActive="active">
-          <span class="icon"><i class="fas fa-address-card"></i></span>
-          <span class="title-2">My Profile</span>
-        </a>
-      </li>
-      <li>
         <a (click)="logout()" routerLinkActive="active" class="logout">
           <span class="icon"><i class="fas fa-right-from-bracket"></i></span>
           <span class="title-2">Logout</span>
@@ -53,5 +47,5 @@
   </div>
 </div>
 <div class="display-content">
-  <router-outlet></router-outlet>
+ <router-outlet></router-outlet>
 </div>

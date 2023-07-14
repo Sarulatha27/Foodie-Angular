@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItemService } from '../MenuItem.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-Orders',
@@ -12,7 +13,7 @@ export class OrdersComponent implements OnInit {
 
   status:boolean=false;
 
-  constructor(private menuservice:MenuItemService) { }
+  constructor(private menuservice:MenuItemService,private router: Router) { }
 
   ngOnInit() {
     this.getOrderList();
@@ -23,6 +24,7 @@ export class OrdersComponent implements OnInit {
       this.orderDetails = result;
       if(result == 0){
         this.status =! this.status;
+        setTimeout(()=>this.router.navigate(['menu']),5000);
       }
     })
   }

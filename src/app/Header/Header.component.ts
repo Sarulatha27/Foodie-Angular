@@ -23,7 +23,6 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-
     // to change nav bar in header
     if (localStorage.getItem('user')) {
       let userStore = localStorage.getItem('user');
@@ -35,6 +34,11 @@ export class HeaderComponent implements OnInit {
     else {
       this.menuType = 'default';
     }
+
+    let cartData = localStorage.getItem('localCart');
+    if(cartData){
+      this.cartItems = JSON.parse(cartData).length;
+    }
   }
 
   userLogout() {
@@ -42,5 +46,4 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['home']);
     window.location.reload();
   }
-  
 }

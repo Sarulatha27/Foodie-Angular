@@ -1,9 +1,11 @@
-section {
+body{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 95vh;
-    width: 100%;
+    min-height: 100vh;
+    background-image: url('../../assets/Images/login.jpg');
+    background-position: center;
+    background-size: contain;
 }
 
 .form-box {
@@ -14,7 +16,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    background: var(--white);
 }
 
 h3 {
@@ -53,7 +55,6 @@ h2 {
     padding: 0 35px 0 5px;
     outline: none;
 }
-
 
 .inputbox input.ng-invalid {
     border-bottom: 2px solid red;

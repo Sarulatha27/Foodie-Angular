@@ -106,3 +106,24 @@ section {
     background-color: var(--yellow);
     transition: all 0.5s ease-in-out;
 }
+
+.scrollToTop{
+    position: fixed;
+    right: 0.5%;
+    bottom: 3%;
+    z-index: 1;
+  }
+  
+  .scrollBtn{
+     font-size: 1.2rem;
+     background-color: var(--orange);
+     color: var(--white);
+     padding: 15px;
+     border-radius: 10%;
+     cursor: pointer;
+     animation: animateScroll 3s linear infinite;
+  }
+  
+  .scrollActive{
+    display: none;
+  }

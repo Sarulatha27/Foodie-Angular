@@ -16,6 +16,9 @@ import { RegisterComponent } from './Register/Register.component';
 import { MenuDetailedComponent } from './MenuDetailed/MenuDetailed.component';
 import { AdminProfileComponent } from './AdminProfile/AdminProfile.component';
 import { OrderDetailedComponent } from './OrderDetailed/OrderDetailed.component';
+import { AdminAuthGuard } from './admin-auth.guard';
+import { UserAuthGuard } from './user-auth.guard';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
   {
@@ -28,11 +31,11 @@ const routes: Routes = [
   },
   {
     path: 'menu',
-    component: MenuComponent,
+    component: MenuComponent
   },
   {
     path: 'menu/:check',
-    component: MenuDetailedComponent,
+    component: MenuDetailedComponent
   },
   {
     path: 'contact',
@@ -51,18 +54,30 @@ const routes: Routes = [
     component: CartComponent
   },
   {
+    path: 'checkout',
+    component: CheckoutComponent,
+    canActivate: [UserAuthGuard]
+  },
+  {
     path: 'orders',
-    component: OrdersComponent
+    component: OrdersComponent,
+    canActivate: [UserAuthGuard]
   },
   {
     path: 'orders/:check',
-    component: OrderDetailedComponent
+    component: OrderDetailedComponent,
+    canActivate: [UserAuthGuard]
   },
   {
     path: 'admin',
     component: AdminComponent,
+    canActivate: [AdminAuthGuard],
     children: [{
       path: 'orderDetails',
+      component: AdminOrderDetailsComponent
+    },
+    {
+      path: 'update/:orderid',
       component: AdminOrderDetailsComponent
     },
     {
@@ -79,6 +94,10 @@ const routes: Routes = [
     },
     {
       path: 'adminProfile',
+      component: AdminProfileComponent
+    },
+    {
+      path: '',
       component: AdminProfileComponent
     }]
   },

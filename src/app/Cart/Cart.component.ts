@@ -26,18 +26,24 @@ export class CartComponent implements OnInit {
   status:boolean=false;
 
   MenuDetails:any;
+
+  todayDate = new Date();
+
+  UserEmail = '';
+
   constructor(private menuservice:MenuItemService,private router:Router,private http:HttpClient) { }
 
   ngOnInit() {
 
     this.loadDetails();
-// to get the user mobile no
+    // to get the user mobile no
     this.http.get("http://localhost:3000/RegisteredUsers").subscribe((users:any) => {
       users.forEach((item:any)=>{
       let user = localStorage.getItem('user');
       let userEmail = user && JSON.parse(user).email;
+      this.UserEmail = userEmail;
       if(item.email === userEmail){
-       this.MobileNo=  item.mobile;
+       this.MobileNo =  item.mobile;
       }
      })
      });  
@@ -50,10 +56,11 @@ export class CartComponent implements OnInit {
       this.CartData=data;
       if(this.CartData==0){
         this.status =! this.status;
+        setTimeout(()=>this.router.navigate(['menu']),5000);
       }
       data.forEach((item:any) => {
         if(item.menuquantity){
-          price  += (+item.menuprice * +item.menuquantity);
+          price  += (item.menuprice * +item.menuquantity);
         }
       })
       this.orderSummary.price = price;
@@ -70,9 +77,11 @@ export class CartComponent implements OnInit {
       let orderDetails = {
         Email_Id: userEmail,
         Mobile_No: this.MobileNo,
+        Order_Date: this.todayDate,
         Total_Amount: this.orderSummary.total,
         ...data,
-        Menu_Details: this.CartData
+        Menu_Details: this.CartData,
+        status: 'Waiting for confirmation'
       }
       this.CartData.forEach((item:any)=>{
         item.id && this.menuservice.deleteCartItem(item.id);
@@ -94,4 +103,23 @@ export class CartComponent implements OnInit {
           window.location.reload();
         })
   }
+  
+  handleQuantity(cartid:number,value:string){
+    this.menuservice.updateCartQty(cartid).subscribe((res:any)=>{
+      let qty = res.menuquantity;
+
+      if(value === 'minus' && qty>1){
+      res.menuquantity = qty - 1;
+      }
+      else if(value === 'plus' && qty<20 ){
+        res.menuquantity = qty + 1;
+        }
+      let cartData = res;
+
+      this.http.patch(`http://localhost:3000/Cart/`+cartid,cartData).subscribe((res)=>{
+        this.loadDetails();
+      });
+    })
+  }
 }
+ 

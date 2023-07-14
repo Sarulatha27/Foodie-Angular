@@ -1,19 +1,21 @@
 <section class="detail-section">
+  <button routerLink="/menu"><i class="fa-solid fa-arrow-left"></i></button>
   <div *ngIf="menuData" class="menu-details">
     <div>
-      <img src="{{menuData.menuimage}}" alt="">
+      <img src="{{menuData.menuimage}}" alt>
     </div>
     <div class="column">
       <div class="detials">
         <h1>{{menuData.menuname}}</h1>
         <h3><span>Price : </span>{{menuData.menuprice | currency:'INR'}}</h3>
         <h3><span>Category : </span>{{menuData.menucategory}}</h3>
-        <div class="quantity">
+        <div class="quantity" *ngIf="!removeCart">
           <button (click)="handleQuantity('minus')">-</button>
-          <input type="text" value="{{menuQuantity}}">
+          <input type="text" value="{{menuQuantity}}" disabled>
           <button (click)="handleQuantity('plus')">+</button>
         </div>
-        <button *ngIf="removeCart" (click)="removeFromCart(menuData.id)">Remove from Cart</button>
+        <button *ngIf="removeCart" (click)="removeFromCart(menuData.id)">Remove
+          from Cart</button>
         <button *ngIf="!removeCart" (click)="addToCart()">Add to Cart</button>
       </div>
     </div>

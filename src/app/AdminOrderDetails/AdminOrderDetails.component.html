@@ -1,1 +1,73 @@
-<p>works</p>
+<div class="title">
+    <h3>Customer Order Details</h3>
+</div>
+<div class="container">
+    <div *ngIf="status" class="emptyorder">
+            <img src="assets/Images/Cart.png" alt />
+            <h2>There is no orders.</h2>
+    </div>
+    <div class="flex-container">
+        <div *ngFor="let ord of Orders" class="flex-box">
+            <div class="content">
+                <small>Order Id:</small>
+                <span>{{ord.id}}</span>
+            </div>
+            <div class="content">
+                <small>Ordered Date & Time:</small>
+                <span>{{ord.Order_Date|date:'dd MMM yyyy hh:mm'}}</span>
+            </div>
+            <div class="content">
+                <small>Email Id:</small>
+                <span>{{ord.Email_Id}}</span>
+            </div>
+            <div class="content">
+                <small>Mobile No:</small>
+                <span>{{ord.Mobile_No}}</span>
+            </div>
+            <div class="content">
+                <small>Total Amount:</small>
+                <span>{{ord.Total_Amount|currency: 'INR'}}</span>
+            </div>
+            <div class="content">
+                <small>Mode of Order:</small>
+                <span>{{ord.Mode_of_Order}}</span>
+            </div>
+            <div class="content">
+                <small>Pick Up Time:</small>
+                <span>{{ord.Pickup_Time}}</span>
+            </div>
+            <div class="content">
+                <small>Menu Details:</small>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Qty</th>
+                    </tr>
+                    <tr *ngFor="let menu of ord.Menu_Details">
+                        <td>{{menu.menuname}}</td>
+                        <td class="qty">{{menu.menuquantity}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="content">
+                <small>Status:</small>
+                <span>{{ord.status}}</span>
+            </div>
+            <div class="content">
+                <small>Action:</small>
+                <button class="edit" routerLink="../update/{{ord.id}}">Edit Status</button>
+            </div>
+        </div>
+
+        <form [formGroup]="UpdateOrderStatus" (ngSubmit)="Submit()">
+            <div class="form-group">
+                <label for="">Order Id : </label>
+                <input type="text" name="" id="" formControlName="id">
+            </div>
+            <div class="form-group">
+                <label for="">Order Status : </label>
+                <input type="text" name="" id="" formControlName="status">
+            </div>
+            <button class="submit">Submit</button>
+        </form>
+    </div>

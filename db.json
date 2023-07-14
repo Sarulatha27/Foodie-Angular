@@ -1,65 +1,4 @@
 {
-  "Admin": [
-    {
-      "profileimage": "assets/Images/Profile.png",
-      "name": "Sarulatha D",
-      "email": "sarulathadhavamani@gmail.com",
-      "mobile": "7708715475",
-      "password": "Saru@7708",
-      "role": "Admin",
-      "city": "Salem - India",
-      "id": 1
-    }
-  ],
-  "RegisteredUsers": [
-    {
-      "name": "Tamilselvi",
-      "email": "tamil@gmail.com",
-      "mobile": "9486595901",
-      "password": "123456",
-      "cpassword": "123456",
-      "id": 1
-    },
-    {
-      "name": "Surenthar",
-      "email": "surenthar@gmail.com",
-      "mobile": "6374510047",
-      "password": "654321",
-      "cpassword": "654321",
-      "id": 2
-    },
-    {
-      "name": "sarulatha",
-      "email": "sarulathadhavamani@gmail.com",
-      "mobile": "7708715475",
-      "password": "123456",
-      "cpassword": "123456",
-      "id": 7
-    }
-  ],
-  "ContactQueries": [
-    {
-      "name": "dhavamani",
-      "email": "dhavamani@gmail.com",
-      "mobile": 8925368626,
-      "message": "Hi i can't able to add menu into the cart.please check with your team",
-      "id": 1
-    },
-    {
-      "name": "AjayAnand",
-      "email": "ajayanand@gmail.com",
-      "mobile": 9080527209,
-      "message": "HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII",
-      "id": 2
-    },
-    {
-      "name": "sarulatha",
-      "email": "sarulathadhavamani@gmail.com",
-      "mobile": 7708715475,
-      "message": "hi admin how are you? in homepage what is the purpose of counter",
-      "id": 3
-    }
-  ],
   "MenuItems": [
     {
       "id": 1,
@@ -244,28 +183,122 @@
       "menuimage": "assets/Images/menu-ice5.jpg"
     }
   ],
+  "Admin": [
+    {
+      "profileimage": "assets/Images/Profile.png",
+      "name": "Sarulatha D",
+      "email": "sarulathadhavamani@gmail.com",
+      "mobile": "7708715475",
+      "password": "Saru@770",
+      "role": "Admin",
+      "city": "Salem - India",
+      "id": 1
+    }
+  ],
+  "RegisteredUsers": [
+    {
+      "name": "Sarulatha",
+      "email": "sarulatha@gmail.com",
+      "mobile": "7708715475",
+      "password": "Saru12",
+      "cpassword": "Saru12",
+      "id": 1
+    },
+    {
+      "name": "Tamilselvi",
+      "email": "tamil@gmail.com",
+      "mobile": "9486595901",
+      "password": "Tamil321",
+      "cpassword": "Tamil321",
+      "id": 2
+    },
+    {
+      "name": "Hemalatha",
+      "email": "hema.latha@gmail.com",
+      "mobile": "9875641258",
+      "password": "Hema12",
+      "cpassword": "Hema12",
+      "id": 3
+    },
+    {
+      "name": "Suryaad",
+      "email": "surya.333@gmail.com",
+      "mobile": "6374510047",
+      "password": "Surya@33",
+      "cpassword": "Surya@33",
+      "id": 4
+    }
+  ],
   "Cart": [],
   "Orders": [
     {
-      "Email_Id": "sarulathadhavamani@gmail.com",
-      "Mobile_No": "7708715475",
-      "Total_Amount": 412.5,
+      "Email_Id": "surya.333@gmail.com",
+      "Mobile_No": "6374510047",
+      "Order_Date": "2023-07-14T18:56:29.359Z",
+      "Total_Amount": 374,
       "Mode_of_Order": "Dine-In",
-      "Mode_of_Payment": "Card",
-      "Pickup_Time": "17:01",
+      "Mode_of_Payment": "Cash",
+      "Pickup_Time": "17:14",
       "Menu_Details": [
         {
-          "menuId": 20,
-          "menuname": "Paneer Mayonnaise Grilled Sandwich [2 Slices]",
-          "menuprice": "125",
-          "menucategory": "Sandwich",
-          "menuimage": "assets/Images/menu-sand3.jpg",
-          "menuquantity": 3,
-          "userEmail": "sarulathadhavamani@gmail.com",
+          "menuId": 1,
+          "menuname": "Vegetables Soup",
+          "menuprice": "75",
+          "menucategory": "Soup",
+          "menuimage": "assets/Images/menu-soup1.jpg",
+          "menuquantity": 2,
+          "userEmail": "surya.333@gmail.com",
           "id": 1
+        },
+        {
+          "menuId": 2,
+          "menuname": "Mushroom & Garlic Pepper Soup",
+          "menuprice": "95",
+          "menucategory": "Soup",
+          "menuimage": "assets/Images/menu-soup2.jpg",
+          "offerPrice": 85.5,
+          "menuquantity": 2,
+          "userEmail": "surya.333@gmail.com",
+          "id": 2
         }
       ],
+      "status": "Approved",
       "id": 1
+    },
+    {
+      "Email_Id": "hema.latha@gmail.com",
+      "Mobile_No": "9875641258",
+      "Order_Date": "2023-07-14T19:06:44.311Z",
+      "Total_Amount": 385,
+      "Mode_of_Order": "Dine-In",
+      "Mode_of_Payment": "Cash",
+      "Pickup_Time": "17:14",
+      "Menu_Details": [
+        {
+          "menuId": 3,
+          "menuname": "Chicken Chettinad Soup",
+          "menuprice": "110",
+          "menucategory": "Soup",
+          "menuimage": "assets/Images/menu-soup3.jpg",
+          "offerPrice": 99,
+          "menuquantity": 1,
+          "userEmail": "hema.latha@gmail.com",
+          "id": 1
+        },
+        {
+          "menuId": 11,
+          "menuname": "Double Cheese Pizza [6 slices]",
+          "menuprice": "240",
+          "menucategory": "Pizza",
+          "menuimage": "assets/Images/menu-pizza2.jpg",
+          "menuquantity": 1,
+          "userEmail": "hema.latha@gmail.com",
+          "id": 2
+        }
+      ],
+      "status": "Waiting for confirmation",
+      "id": 2
     }
-  ]
+  ],
+  "ContactQueries": []
 }
