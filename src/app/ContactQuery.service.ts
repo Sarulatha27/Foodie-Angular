@@ -1,15 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactQueryService {
 
-  url: any = "http://localhost:3000/ContactQueries";
   constructor(private http: HttpClient) { }
 
   Contact(body: any) {
-    return this.http.post(this.url, body);
+    return this.http.post(environment.getContactDetails, body);
   }
 }

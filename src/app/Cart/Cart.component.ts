@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { MenuItemService } from '../MenuItem.service';
 import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment.development';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-Cart',
@@ -21,8 +23,6 @@ export class CartComponent implements OnInit {
 
   CartData:any;
 
-  OrderMsg="You order has been placed";
-
   status:boolean=false;
 
   MenuDetails:any;
@@ -31,13 +31,13 @@ export class CartComponent implements OnInit {
 
   UserEmail = '';
 
-  constructor(private menuservice:MenuItemService,private router:Router,private http:HttpClient) { }
+  constructor(private menuservice:MenuItemService,private router:Router,private http:HttpClient,private formbuilder: FormBuilder) { }
 
   ngOnInit() {
 
     this.loadDetails();
     // to get the user mobile no
-    this.http.get("http://localhost:3000/RegisteredUsers").subscribe((users:any) => {
+    this.http.get(environment.getRegisteredUsers).subscribe((users:any) => {
       users.forEach((item:any)=>{
       let user = localStorage.getItem('user');
       let userEmail = user && JSON.parse(user).email;
@@ -48,6 +48,23 @@ export class CartComponent implements OnInit {
      })
      });  
   }
+
+  getCurrentDate(): string {
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+    const day = currentDate.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
+
+  OrderForm = this.formbuilder.group({
+    modeofOrder: [, Validators.required],
+    pickupTime: [, Validators.required],
+    cardNumber: [, [Validators.required, Validators.pattern("[0-9]{0,16}"), Validators.minLength(16), Validators.maxLength(16)]],
+    cardType: [, Validators.required],
+    expiry: [, Validators.required],
+    cvv: [, [Validators.required, Validators.pattern("[0-9]{0,16}"), Validators.minLength(3), Validators.maxLength(3)]]
+  })
 
   loadDetails(){
     this.menuservice.Cart().subscribe((data)=>{
@@ -68,8 +85,8 @@ export class CartComponent implements OnInit {
       this.orderSummary.total = price+(price/10);
     })
   }
-  
-  orderNow(data:any){
+
+  placeOrder(){
     let user = localStorage.getItem('user');
     let userEmail = user && JSON.parse(user).email;
 
@@ -79,9 +96,12 @@ export class CartComponent implements OnInit {
         Mobile_No: this.MobileNo,
         Order_Date: this.todayDate,
         Total_Amount: this.orderSummary.total,
-        ...data,
+        Mode_of_Order: this.OrderForm.value.modeofOrder,
+        Mode_of_Payment: this.OrderForm.value.cardType,
+        Pickup_Time: this.OrderForm.value.pickupTime,
         Menu_Details: this.CartData,
-        status: 'Waiting for confirmation'
+        Order_Status: 'Waiting for confirmation',
+        Menu_Prep_Status: 'Waiting for order confirmation'
       }
       this.CartData.forEach((item:any)=>{
         item.id && this.menuservice.deleteCartItem(item.id);
@@ -89,13 +109,12 @@ export class CartComponent implements OnInit {
 
       this.menuservice.orderNow(orderDetails).subscribe((res)=>{
         if(res){
-            alert(this.OrderMsg);
+            alert('You order has been placed');
             this.router.navigate(['/orders']);
         }
       })
-    }
   }
-
+}
   removeFromCart(cartid:number){
     cartid && this.menuservice.romoveFromCart(cartid)
         .subscribe((result) => {
@@ -116,7 +135,7 @@ export class CartComponent implements OnInit {
         }
       let cartData = res;
 
-      this.http.patch(`http://localhost:3000/Cart/`+cartid,cartData).subscribe((res)=>{
+      this.http.patch(environment.getCartDetails+`/`+cartid,cartData).subscribe((res)=>{
         this.loadDetails();
       });
     })

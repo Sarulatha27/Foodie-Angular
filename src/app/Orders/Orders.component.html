@@ -16,15 +16,17 @@
           <th>Order Id</th>
           <th>Date & Time</th>
           <th>Price</th>
-          <th>Status</th>
+          <th>Order Status</th>
+          <th>Menu Preparation Status</th>
           <th>Action</th>
         </thead>
         <tbody>
-          <tr *ngFor="let order of orderDetails">
+          <tr  *ngFor="let order of orderDetails">
             <td>{{ order.id }}</td>
             <td>{{order.Order_Date | date: 'dd MMM yyyy hh:mm:ss'}}</td>
             <td>{{ order.Total_Amount | currency : "INR" }}</td>
-            <td>{{order.status}}</td>
+            <td>{{order.Order_Status}}</td>
+            <td>{{order.Menu_Prep_Status}}</td>
             <td><a routerLink="/orders/{{order.id}}"><button>View</button></a></td>
           </tr>
         </tbody>

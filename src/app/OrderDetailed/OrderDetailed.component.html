@@ -26,9 +26,9 @@
                 <td>{{orderData.Mode_of_Order}}</td>
                 <td>{{orderData.Mode_of_Payment}}</td>
                 <td>{{orderData.Pickup_Time}}</td>
-                <td><button (click)="cancelOrder(orderData.id)" *ngIf="orderData.status === 'Approved'"><i class="fas fa-trash"></i></button>
-                <p *ngIf="orderData.status !== 'Approved' && orderData.status !== 'Rejected'">Enabled once the order is accepted</p>
-                <p *ngIf="orderData.status === 'Rejected'">Sorry! your order has been rejected.We'll refund your money soon</p></td>
+                <td><button (click)="cancelOrder(orderData.id)" *ngIf="orderData.Order_Status === 'Accepted'"><i class="fas fa-trash"></i></button>
+                <p *ngIf="orderData.Order_Status !== 'Accepted' && orderData.Order_Status !== 'Rejected'">Enabled once the order is accepted</p>
+                <p *ngIf="orderData.Order_Status === 'Rejected'">Sorry! your order has been rejected.We will refund your money soon</p></td>
             </tr>
         </table>
         <div class="table-2"  *ngIf="!status">

@@ -43,7 +43,7 @@
 }
 
 table {
-    width: 780px;
+    width: 740px;
     border-collapse: collapse;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
     overflow: hidden;
@@ -96,8 +96,7 @@ button:disabled{
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
     overflow: hidden;
     border-radius: 4px;
-    height: 400px;
-    width: 312px;
+    width: 370px;
 }
 
 .summary h1 {
@@ -128,17 +127,25 @@ button:disabled{
 
 .total td{
     color: var(--orange);
-    font-size: 18px;
     font-weight: 600;
 }
 
+pre{
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+}
 select,input[type='number']{
     width: 105px;
     height: 25px;
 }
 
-span{
+.errorMessage{
     color: red;
+    font-size: 12px;
+}
+
+.errorMessage p{
+    padding-left: 15px;
 }
 
 .Empty{

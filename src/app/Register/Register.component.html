@@ -10,26 +10,26 @@
                     <input type="text" placeholder="Name" formControlName="name" />
                 </div>
 
-                <div *ngIf="RegisterForm.controls['name'].dirty">
+                <div *ngIf="RegisterForm.controls['name'].dirty || RegisterForm.controls['name'].touched">
                     <p class="error" *ngIf="RegisterForm.controls['name'].errors?.['required']">
-                        Name is required
+                        Enter your name
                     </p>
                     <p class="error" *ngIf="RegisterForm.controls['name'].errors?.['pattern']">
-                        Name should have only alphabets
+                        Your name should have only alphabets
                     </p>
                     <p class="error" *ngIf="RegisterForm.controls['name'].errors?.['minlength']">
-                        Enter name with atleast 6 characters
+                        Enter your name with atleast 6 characters
                     </p>
                 </div>
 
                 <div class="inputbox">
                     <i class="fas fa-envelope"></i>
-                    <input type="text" placeholder="Email Id" formControlName="email"/>
+                    <input type="text" placeholder="Email Id" formControlName="email" />
                 </div>
 
-                <div *ngIf="RegisterForm.controls['email'].dirty">
+                <div *ngIf="RegisterForm.controls['email'].dirty || RegisterForm.controls['email'].touched">
                     <p class="error" *ngIf="RegisterForm.controls['email'].errors?.['required']">
-                        Email Id is required
+                        Enter your email id
                     </p>
                     <p class="error" *ngIf="RegisterForm.controls['email'].errors?.['pattern']">
                         Enter a valid email id
@@ -41,12 +41,12 @@
                     <input type="text" placeholder="Mobile No" formControlName="mobile" />
                 </div>
 
-                <div *ngIf="RegisterForm.controls['mobile'].dirty">
+                <div *ngIf="RegisterForm.controls['mobile'].dirty || RegisterForm.controls['mobile'].touched">
                     <p class="error" *ngIf="RegisterForm.controls['mobile'].errors?.['required']">
-                        Mobile Number is required
+                        Enter your mobile number
                     </p>
                     <p class="error" *ngIf="RegisterForm.controls['mobile'].errors?.['pattern']">
-                        Enter valid mobile number
+                        Enter a valid mobile number
                     </p>
                 </div>
 
@@ -55,12 +55,13 @@
                     <input type="password" placeholder="Password" formControlName="password" />
                 </div>
 
-                <div *ngIf="RegisterForm.controls['password'].dirty">
+                <div *ngIf="RegisterForm.controls['password'].dirty || RegisterForm.controls['password'].touched">
                     <p class="error" *ngIf="RegisterForm.controls['password'].errors?.['required']">
-                        Password is required
+                        Enter your password
                     </p>
                     <p class="error" *ngIf="RegisterForm.controls['password'].errors?.['pattern']">
-                        length 6-8,at least 1(uppercase,lowercase,number)
+                        Passwords must be 6-8 characters long & contain
+                        1(uppercase,lowercase,number)
                     </p>
                 </div>
 
@@ -69,7 +70,7 @@
                     <input type="password" placeholder="Confirm Password" formControlName="cpassword" />
                 </div>
 
-                <div *ngIf="RegisterForm.controls['cpassword'].dirty">
+                <div *ngIf="RegisterForm.controls['cpassword'].dirty || RegisterForm.controls['cpassword'].touched">
                     <p class="error" *ngIf="RegisterForm.controls['cpassword'].errors?.['ConfirmedValidator']">
                         Confirm password is not matched
                     </p>

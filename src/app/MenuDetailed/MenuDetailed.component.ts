@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItemService } from '../MenuItem.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ArrayType } from '@angular/compiler';
 
 @Component({
   selector: 'app-MenuDetailed',

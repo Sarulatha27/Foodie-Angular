@@ -9,8 +9,9 @@
                     <input type="text" placeholder="Email Id" formControlName="email" />
                 </div>
 
-                <div *ngIf="LoginForm.controls['email'].dirty">
-                    <small *ngIf="LoginForm.controls['email'].errors?.['required']">Email Id is required</small>
+                <div *ngIf="LoginForm.controls['email'].dirty || LoginForm.controls['email'].touched">
+                    <small *ngIf="LoginForm.controls['email'].errors?.['required']">
+                        Enter your email id</small>
                     <small *ngIf="LoginForm.controls['email'].errors?.['pattern']">Enter a valid email id</small>
                 </div>
 
@@ -19,10 +20,9 @@
                     <input type="password" placeholder="Password" formControlName="password" />
                 </div>
 
-                <div *ngIf="LoginForm.controls['password'].dirty">
-                    <small *ngIf="LoginForm.controls['password'].errors?.['required']">Password is required</small>
-                    <small *ngIf="LoginForm.controls['password'].errors?.['pattern']">length 6-8,at least
-                        1(uppercase,lowercase,number)</small>
+                <div *ngIf="LoginForm.controls['password'].dirty || LoginForm.controls['password'].touched">
+                    <small *ngIf="LoginForm.controls['password'].errors?.['required']">Enter your password</small>
+                    <small *ngIf="LoginForm.controls['password'].errors?.['pattern']">Passwords must be 6-8 characters long & contain 1(uppercase,lowercase,number)</small>
                 </div>
 
                 <div class="forgot">

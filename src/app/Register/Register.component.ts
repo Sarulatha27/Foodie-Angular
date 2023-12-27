@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ConfirmedValidator } from '../ConfirmedValidator';
 import { RegisterFormService } from '../RegisterForm.service';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-Register',
@@ -37,7 +38,7 @@ export class RegisterComponent implements OnInit {
   }
 
   Reg(){
-    this.http.get("http://localhost:3000/RegisteredUsers").subscribe((data:any)=>{
+    this.http.get(environment.getRegisteredUsers).subscribe((data:any)=>{
       const user = data.find((a:any)=>{
         return a.email === this.RegisterForm.value.email;
       });

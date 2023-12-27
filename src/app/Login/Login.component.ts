@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 import { MenuItemService } from '../MenuItem.service';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-Login',
@@ -24,7 +25,6 @@ export class LoginComponent implements OnInit {
   errors: any = false;
 
   validateCredentials() {
-
     if (this.LoginForm.invalid) {
       return;
     }
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
   }
 
   customer() {
-    this.http.get<any>("http://localhost:3000/RegisteredUsers").subscribe(data => {
+    this.http.get<any>(environment.getRegisteredUsers).subscribe(data => {
       const customer = data.find((a: any) => {
         return a.email === this.LoginForm.value.email && a.password === this.LoginForm.value.password
       });
@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
   }
 
   admin() {
-    this.http.get<any>("http://localhost:3000/Admin").subscribe(data => {
+    this.http.get<any>(environment.getAdminDetails).subscribe(data => {
       const admin = data.find((a: any) => {
         return a.email === this.LoginForm.value.email && a.password === this.LoginForm.value.password
       });

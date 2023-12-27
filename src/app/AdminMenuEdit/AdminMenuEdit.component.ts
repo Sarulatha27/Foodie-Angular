@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-AdminMenuEdit',
@@ -10,7 +11,6 @@ import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AdminMenuEditComponent implements OnInit {
 
-  url = "http://localhost:3000/MenuItems";
   editMenuForm: any;
   MenuList: any;
   status: boolean = false;
@@ -60,13 +60,13 @@ export class AdminMenuEditComponent implements OnInit {
     else {
       let id = this.editMenuForm.controls.id.value;
       if (!id) {
-        this.http.post(this.url, this.editMenuForm.value).subscribe(() => {
+        this.http.post(environment.getMenuItems, this.editMenuForm.value).subscribe(() => {
           alert('Menu Item is Added');
           this.reset();
         });
       }
       else {
-        this.http.put(this.url + '/' + id, this.editMenuForm.value).subscribe(() => {
+        this.http.put(environment.getMenuItems + '/' + id, this.editMenuForm.value).subscribe(() => {
           alert('Menu Item Updated Successfully');
           this.reset();
         });
@@ -81,7 +81,7 @@ export class AdminMenuEditComponent implements OnInit {
   }
 
   getAll() {
-    this.http.get(this.url).subscribe((result: any) => {
+    this.http.get(environment.getMenuItems).subscribe((result: any) => {
       this.MenuList = result;
     });
   }
@@ -93,7 +93,7 @@ export class AdminMenuEditComponent implements OnInit {
       if (!menu) return;
       menu.isReading = true;
 
-      this.http.get(this.url + '/' + id).subscribe((result: any) => {
+      this.http.get(environment.getMenuItems + '/' + id).subscribe((result: any) => {
         Object.keys(this.editMenuForm.controls).forEach(key => {
           this.editMenuForm.controls[key].setValue(result[key]);
         });
@@ -111,7 +111,7 @@ export class AdminMenuEditComponent implements OnInit {
       if (!menu) return;
       menu.isDeleting = true;
 
-      this.http.delete(this.url + '/' + id).subscribe(() => {
+      this.http.delete(environment.getMenuItems + '/' + id).subscribe(() => {
         menu.isReading = false;
         this.reset();
         alert('The menu is removed');

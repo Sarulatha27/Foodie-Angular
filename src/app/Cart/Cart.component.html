@@ -7,8 +7,14 @@
     <div>
       <a><img src="assets/Images/Cart.png" alt /></a>
       <h2>Your Shopping Cart Is Empty</h2>
-      <a><p>Add menus to it now.</p></a>
-      <a><p>If there is no items in cart,this page will automatically redirected</p></a>
+      <a>
+        <p>Add menus to it now.</p>
+      </a>
+      <a>
+        <p>
+          If there is no items in cart,this page will automatically redirected
+        </p>
+      </a>
     </div>
   </div>
 
@@ -28,55 +34,148 @@
             <td><img src="{{ cart.menuimage }}" alt /></td>
             <td>{{ cart.menuname }}</td>
             <td>{{ cart.menuprice | currency : "INR" }}</td>
-            <td><button (click)="handleQuantity(cart.id,'minus')">-</button> {{cart.menuquantity}} <button (click)="handleQuantity(cart.id,'plus')">+</button></td>
-            <td>{{cart.menuprice*cart.menuquantity| currency : "INR"}}</td>
-            <td><button (click)="removeFromCart(cart.id)"><i class="fa fa-trash"></i></button></td>
+            <td>
+              <button (click)="handleQuantity(cart.id, 'minus')">-</button>
+              {{ cart.menuquantity }}
+              <button (click)="handleQuantity(cart.id, 'plus')">+</button>
+            </td>
+            <td>{{ cart.menuprice * cart.menuquantity | currency : "INR" }}</td>
+            <td>
+              <button (click)="removeFromCart(cart.id)">
+                <i class="fa fa-trash"></i>
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
     <div class="summary">
       <h1>Cart Summary</h1>
-      <form #orderDetails="ngForm" (ngSubmit)="orderNow(orderDetails.value)">
+      <form autocomplete="off" [formGroup]="OrderForm" (submit)="placeOrder()">
         <tr>
           <td>Sub Total :</td>
           <td>{{ orderSummary.price | currency : "INR" }}</td>
         </tr>
         <tr>
           <td>GST :</td>
-          <td>{{ orderSummary.gst | currency : "INR" }}</td>
+          <td><pre>  {{ orderSummary.gst | currency : "INR" }}</pre></td>
         </tr>
         <tr class="total">
           <td>Grand Total :</td>
           <td>{{ orderSummary.total | currency : "INR" }}</td>
         </tr>
         <tr>
-          <td>Mode of Order<span *ngIf="order.invalid">*</span></td>
+          <td>Mode of Order</td>
           <td>
-            <select name="Mode_of_Order" ngModel #order="ngModel" required>
+            <select name="Mode_of_Order" formControlName="modeofOrder">
               <option value="Dine-In">Dine-In</option>
               <option value="Take Out">Take Out</option>
             </select>
           </td>
         </tr>
+        <tr class="errorMessage" *ngIf="
+            OrderForm.controls['modeofOrder'].invalid &&
+            (OrderForm.controls['modeofOrder'].touched ||
+              OrderForm.controls['modeofOrder'].dirty)
+          ">
+          <p *ngIf="OrderForm.controls['modeofOrder'].errors?.['required']">
+            This is a required field
+          </p>
+        </tr>
         <tr>
-          <td>Mode of Payment<span *ngIf="payment.invalid">*</span></td>
+          <td>Pickup Time</td>
           <td>
-            <select name="Mode_of_Payment" ngModel #payment="ngModel" required>
-              <option value="Cash">Cash</option>
-              <option value="Card">Card</option>
-              <option value="UPI">UPI</option>
+            <input name="Pickup_Time" type="time" formControlName="pickupTime" />
+          </td>
+        </tr>
+        <tr class="errorMessage" *ngIf="
+            OrderForm.controls['pickupTime'].invalid &&
+            (OrderForm.controls['pickupTime'].touched ||
+              OrderForm.controls['pickupTime'].dirty)
+          ">
+          <p *ngIf="OrderForm.controls['pickupTime'].errors?.['required']">
+            This is a required field
+          </p>
+        </tr>
+        <tr>
+          <td><label for="cardType"> Card Type </label></td>
+          <td>
+            <select name="cardType" formControlName="cardType">
+              <option>Debit Card</option>
+              <option>Credit Card</option>
             </select>
           </td>
         </tr>
+        <tr *ngIf="
+            OrderForm.controls['cardType'].invalid &&
+            (OrderForm.controls['cardType'].touched ||
+              OrderForm.controls['cardType'].dirty)
+          ">
+          <p *ngIf="OrderForm.controls['cardType'].errors?.['required']">
+            This is a required field
+          </p>
+        </tr>
         <tr>
-          <td>Pickup Time<span *ngIf="time.invalid">*</span></td>
+          <td><label for="cardNumber"> Card Number </label></td>
           <td>
-            <input name="Pickup_Time" type="time" ngModel #time="ngModel" min="16:00" max="22:00" required/>
+            <input type="tel" maxlength="16" name="cardNumber" formControlName="cardNumber" minlength="16"
+              maxlength="16" placeholder="XXXX XXXX XXXX XXXX" required />
           </td>
         </tr>
+        <tr class="errorMessage" *ngIf="
+            OrderForm.controls['cardNumber'].invalid &&
+            (OrderForm.controls['cardNumber'].touched ||
+              OrderForm.controls['cardNumber'].dirty)
+          ">
+          <p *ngIf="OrderForm.controls['cardNumber'].errors?.['required']">
+            This is a required field
+          </p>
+          <p *ngIf="OrderForm.controls['cardNumber'].errors?.['pattern']">
+            Enter Only Digits
+          </p>
+          <p *ngIf="OrderForm.controls['cardNumber'].errors?.['minlength']">
+            Please Enter 16 Digits Number
+          </p>
+        </tr>
+        <tr>
+          <td><label for="expiry"> Expiry Date </label></td>
+          <td>
+            <input type="month" name="expiry" [min]="getCurrentDate()" formControlName="expiry" placeholder="MM/YYYY"
+              required />
+          </td>
+        </tr>
+        <tr class="errorMessage" *ngIf="
+            OrderForm.controls['expiry'].invalid &&
+            (OrderForm.controls['expiry'].touched ||
+              OrderForm.controls['expiry'].dirty)
+          ">
+          <p *ngIf="OrderForm.controls['expiry'].errors?.['required']">
+            This is a required field
+          </p>
+        </tr>
+        <tr>
+          <td><label for="cvv"> CVV </label></td>
+          <td>
+            <input type="tel" name="cvv" formControlName="cvv" placeholder="XXX" minlength="3" maxlength="3" required />
+          </td>
+        </tr>
+        <tr class="errorMessage" *ngIf="
+            OrderForm.controls['cvv'].invalid &&
+            (OrderForm.controls['cvv'].touched ||
+              OrderForm.controls['cvv'].dirty)
+          ">
+          <p *ngIf="OrderForm.controls['cvv'].errors?.['required']">
+            This is a required field
+          </p>
+          <p *ngIf="OrderForm.controls['cvv'].errors?.['pattern']">
+            Enter Only Digits
+          </p>
+          <p *ngIf="OrderForm.controls['cvv'].errors?.['minlength']">
+            Please Enter 3 Digits Number
+          </p>
+        </tr>
         <div class="button">
-          <button [disabled]="orderDetails.form.invalid">Checkout</button>
+          <button [disabled]="OrderForm.invalid">Place Order</button>
         </div>
       </form>
     </div>

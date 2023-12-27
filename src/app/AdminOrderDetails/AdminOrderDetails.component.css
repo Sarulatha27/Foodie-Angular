@@ -88,16 +88,9 @@ button{
     font-family: 600;
     transition: all .5s ease;
 }
-.submit{
-    background-color: green;
-}
 .edit{
-    background-color: var(--orange);
+    background-color: red;
 }
-.submit:hover {
-    background-color: #079407;
-}
-
-.edit:hover{
-    background-color: rgb(235, 92, 41);
+.accept{
+    background-color: green;
 }

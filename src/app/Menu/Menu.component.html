@@ -29,8 +29,7 @@
         </div>
         <span *ngIf="!menu.offerPrice">{{ menu.menuprice | currency : "INR" }}</span>
       </div>
-      <button class="add" (click)="addToCart(menu)" >🍕</button>
-      <button class="add wish" >❤</button>
+      <button class="add" (click)="addToCart(menu)" >Add to Cart</button>
     </li>
   </ul>
 </section>

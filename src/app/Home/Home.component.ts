@@ -7,8 +7,6 @@ import { Component, OnInit, HostListener } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  status:boolean = false;
-
   customerCount: number = 0;
   foodCount: number = 0;
   menuCount: number = 0;
@@ -44,13 +42,7 @@ export class HomeComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  setTimeout(() =>this.status = ! this.status, 3000);
-  }
-
-  ClosePopUp(){
-    this.status = false;
-  }
+  ngOnInit() {}
 
   isScrollActive = false;
 

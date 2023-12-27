@@ -14,6 +14,20 @@ export class MenuComponent implements OnInit {
 
   menuid:any;
 
+  isScrollActive = false;
+
+  @HostListener('window:scroll')
+  onWindowScroll() {
+    this.isScrollActive = window.pageYOffset > 100;
+  }
+
+  scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
   constructor(private menuservice: MenuItemService,private router:Router) { }
 
   ngOnInit() {
@@ -27,20 +41,6 @@ export class MenuComponent implements OnInit {
         });
         this.scheduleToOriginalPrice();
       }      
-    })
-  }
-
-  isScrollActive = false;
-
-  @HostListener('window:scroll')
-  onWindowScroll() {
-    this.isScrollActive = window.pageYOffset > 100;
-  }
-
-  scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
     })
   }
   

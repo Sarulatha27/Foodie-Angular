@@ -33,6 +33,10 @@
                 <span>{{ord.Mode_of_Order}}</span>
             </div>
             <div class="content">
+                <small>Mode of Payment:</small>
+                <span>{{ord.Mode_of_Payment}}</span>
+            </div>
+            <div class="content">
                 <small>Pick Up Time:</small>
                 <span>{{ord.Pickup_Time}}</span>
             </div>
@@ -50,24 +54,28 @@
                 </table>
             </div>
             <div class="content">
-                <small>Status:</small>
-                <span>{{ord.status}}</span>
+                <small>Order_Status:</small>
+                <span>{{ord.Order_Status}}</span>
             </div>
-            <div class="content">
+            <div class="content" *ngIf="ord.Order_Status === 'Accepted'">
+                <small>Menu_Prep_Status:</small>
+                <span>{{ord.Menu_Prep_Status}}</span>
+            </div>
+            <div class="content" *ngIf="ord.Order_Status==='Waiting for confirmation'">
                 <small>Action:</small>
-                <button class="edit" routerLink="../update/{{ord.id}}">Edit Status</button>
+                <button class="edit accept" (click)="Order_Status(ord.id,'Accept')" *ngIf="ord.Order_Status !== 'Accepted' && ord.Order_Status !== 'Rejected'">Accept</button>
+                <button class="edit" (click)="Order_Status(ord.id,'Reject')" *ngIf="ord.Order_Status !== 'Accepted' && ord.Order_Status !== 'Rejected'">Reject</button>
+            </div>
+            <div class="content" *ngIf="ord.Order_Status === 'Accepted' && ord.Menu_Prep_Status !== 'Prepared'">
+                <small>Menu Preparation Status:</small>
+                <button class="edit accept" (click)="Menu_Prep_Status(ord.id)">Prepared</button>
+            </div>
+            <div class="content" *ngIf="ord.Order_Status === 'Accepted' && ord.Menu_Prep_Status === 'Prepared'">
+                <small>Order_Status:</small>
+                <button class="edit" (click)="Order_Status(ord.id,'Deliver')">Delivered</button>
+            </div>
+            <div class="content" *ngIf="ord.Menu_Prep_Status === 'Prepared' && ord.Order_Status !== 'Delivered'">
+                <button class="accept">Generate Bill</button>
             </div>
         </div>
-
-        <form [formGroup]="UpdateOrderStatus" (ngSubmit)="Submit()">
-            <div class="form-group">
-                <label for="">Order Id : </label>
-                <input type="text" name="" id="" formControlName="id">
-            </div>
-            <div class="form-group">
-                <label for="">Order Status : </label>
-                <input type="text" name="" id="" formControlName="status">
-            </div>
-            <button class="submit">Submit</button>
-        </form>
     </div>

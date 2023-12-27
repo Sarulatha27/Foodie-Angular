@@ -15,37 +15,44 @@
 
     <form [formGroup]="ContactForm" (submit)="SubmitForm()">
       <h3>tell us something!</h3>
-      <input type="text" class="box" placeholder="Name" formControlName="name"
-        [ngClass]="{ 'is-invalid':ContactForm.controls['name'].errors }">
+      <input type="text" class="box" placeholder="Name" formControlName="name">
 
-      <div *ngIf="ContactForm.controls['name'].dirty">
-        <p class="error" *ngIf="ContactForm.controls['name'].errors?.['required']">Name is required</p>
-        <p class="error" *ngIf="ContactForm.controls['name'].errors?.['pattern']">Name should have only alphabets</p>
-        <p class="error" *ngIf="ContactForm.controls['name'].errors?.['minlength']">Enter name with atleast 6
-          characters</p>
+      <div *ngIf="ContactForm.controls['name'].dirty || ContactForm.controls['name'].touched">
+        <p class="error" *ngIf="ContactForm.controls['name'].errors?.['required']">
+            Enter your name
+        </p>
+        <p class="error" *ngIf="ContactForm.controls['name'].errors?.['pattern']">
+            Your name should have only alphabets
+        </p>
+        <p class="error" *ngIf="ContactForm.controls['name'].errors?.['minlength']">
+            Enter your name with atleast 6 characters
+        </p>
       </div>
 
-      <input type="email" class="box" placeholder="Email Id" formControlName="email"
-        [ngClass]="{ 'is-invalid':ContactForm.controls['email'].errors }">
+      <input type="email" class="box" placeholder="Email Id" formControlName="email">
 
-      <div *ngIf="ContactForm.controls['email'].dirty">
-        <p class="error" *ngIf="ContactForm.controls['email'].errors?.['required']">Email Id is required</p>
-        <p class="error" *ngIf="ContactForm.controls['email'].errors?.['pattern']">Enter a valid email id</p>
-      </div>
+      <div *ngIf="ContactForm.controls['email'].dirty || ContactForm.controls['email'].touched">
+        <p class="error" *ngIf="ContactForm.controls['email'].errors?.['required']">
+            Enter your email id
+        </p>
+        <p class="error" *ngIf="ContactForm.controls['email'].errors?.['pattern']">
+            Enter a valid email id
+        </p>
+    </div>
+      <input type="number" class="box" placeholder="Phone Number" formControlName="mobile">
 
-      <input type="number" class="box" placeholder="Phone Number" formControlName="mobile"
-        [ngClass]="{ 'is-invalid':ContactForm.controls['mobile'].errors }">
+      <div *ngIf="ContactForm.controls['mobile'].dirty || ContactForm.controls['mobile'].touched">
+        <p class="error" *ngIf="ContactForm.controls['mobile'].errors?.['required']">
+            Enter your mobile number
+        </p>
+        <p class="error" *ngIf="ContactForm.controls['mobile'].errors?.['pattern']">
+            Enter a valid mobile number
+        </p>
+    </div>
+      <textarea class="box" placeholder="Type Your Message Here.." formControlName="message"></textarea>
 
-      <div *ngIf="ContactForm.controls['mobile'].dirty">
-        <p class="error" *ngIf="ContactForm.controls['mobile'].errors?.['required']">Mobile Number is required</p>
-        <p class="error" *ngIf="ContactForm.controls['mobile'].errors?.['pattern']">Enter valid mobile number</p>
-      </div>
-
-      <textarea class="box" placeholder="Type Your Message Here.." formControlName="message"
-        [ngClass]="{ 'is-invalid':ContactForm.controls['message'].errors }"></textarea>
-
-      <div *ngIf="ContactForm.controls['message'].dirty">
-        <p class="error" *ngIf="ContactForm.controls['message'].errors?.['required']">Message is required</p>
+      <div *ngIf="ContactForm.controls['message'].dirty || ContactForm.controls['message'].touched">
+        <p class="error" *ngIf="ContactForm.controls['message'].errors?.['required']">Enter your message</p>
         <p class="error" *ngIf="ContactForm.controls['message'].errors?.['minlength']">Enter your message with atleast
           30
           characters</p>

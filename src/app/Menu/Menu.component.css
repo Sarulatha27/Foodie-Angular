@@ -74,7 +74,6 @@ a{
   width: 210px;
   height: 100px;
   color: var(--orange);
-  text-align: justify;
   text-decoration: underline;
 }
 
@@ -98,8 +97,6 @@ a:hover{
   position: relative;
   bottom: 180px;
   left:0px;
-  width: 50px;
-  border-top-right-radius: 16px;
   display: none;
 }
 
